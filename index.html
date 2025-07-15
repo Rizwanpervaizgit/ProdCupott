@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CUP Entertainment</title>
+    <!-- Tailwind CSS CDN for easy styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom CSS file -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts - Inter for a modern look -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for arrow icons and hamburger icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<!-- Updated body background and text colors for a modern dark theme -->
+<body class="bg-[#121212] text-[#EEEEEE] font-inter">
+    <!-- Header Section -->
+    <!-- Adjusted header z-index to z-50 to ensure it's always on top -->
+    <header class="bg-[#121212] bg-opacity-90 py-4 px-6 md:px-12 flex justify-between items-center fixed top-0 left-0 w-full z-50 shadow-lg">
+        <div class="flex items-center">
+            <!-- Site title with logo and link to home -->
+            <a href="javascript:void(0);" id="header-logo-link" class="flex items-center text-white hover:text-gray-300 transition duration-300">
+                <img src="images/logo.png" alt="CUP Entertainment Logo" class="h-16 w-39 mr-2"> <!-- Adjusted h-16 for better visibility -->
+            </a>
+            <!-- Desktop Navigation links -->
+            <nav class="hidden md:flex space-x-6">
+                <!-- Modified: Changed href to scroll to section and removed open-form-trigger -->
+                <a href="#start-free-trial-section" class="text-[#EEEEEE] hover:text-white transition duration-300">Home</a>
+                <a href="#start-free-trial-section" class="text-[#EEEEEE] hover:text-white transition duration-300">Movies</a>
+                <a href="#start-free-trial-section" class="text-[#EEEEEE] hover:text-white transition duration-300">Drama</a>
+                <a href="#start-free-trial-section" class="text-[#EEEEEE] hover:text-white transition duration-300">Live TV</a>
+                <a href="about.html" class="text-[#EEEEEE] hover:text-white transition duration-300">About Us</a>
+                <a href="Contact.html" class="text-[#EEEEEE] hover:text-white transition duration-300">Contact Us</a>
+            </nav>
+        </div>
+        <!-- Mobile menu button (hamburger icon) -->
+        <button id="mobile-menu-button" class="md:hidden text-white text-2xl focus:outline-none">
+            <i class="fas fa-bars"></i>
+        </button>
+    </header>
+
+    <!-- Mobile Navigation Menu -->
+    <!-- This menu will slide in from the left on small screens -->
+    <div id="mobile-menu" class="fixed top-0 left-0 w-64 h-full bg-[#1F242D] z-[900000] transform -translate-x-full transition-transform duration-300 ease-in-out md:hidden shadow-lg">
+        <div class="p-6">
+            <button id="close-mobile-menu" class="text-white text-3xl absolute top-4 right-4 focus:outline-none">&times;</button>
+            <a href="javascript:void(0);" class="flex items-center text-white hover:text-gray-300 transition duration-300 mb-8">
+                <img src="images/logo.png" alt="CUP Entertainment Logo" class="h-16 w-39 mr-2">
+            </a>
+            <nav class="flex flex-col space-y-4">
+                <a href="#start-free-trial-section" class="text-[#EEEEEE] hover:text-white transition duration-300 text-lg mobile-menu-link">Home</a>
+                <a href="#start-free-trial-section" class="text-[#EEEEEE] hover:text-white transition duration-300 text-lg mobile-menu-link">Movies</a>
+                <a href="#start-free-trial-section" class="text-[#EEEEEE] hover:text-white transition duration-300 text-lg mobile-menu-link">Drama</a>
+                <a href="#start-free-trial-section" class="text-[#EEEEEE] hover:text-white transition duration-300 text-lg mobile-menu-link">Live TV</a>
+                <a href="about.html" class="text-[#EEEEEE] hover:text-white transition duration-300 text-lg mobile-menu-link">About Us</a>
+                <a href="Contact.html" class="text-[#EEEEEE] hover:text-white transition duration-300 text-lg mobile-menu-link">Contact Us</a>
+            </nav>
+        </div>
+    </div>
+    <!-- Overlay for mobile menu -->
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-[800000] hidden"></div>
+
+
+    <!-- Carousel Banner Section - Now fixed at the top with blur effect -->
+    <section id="carousel-banner" class="relative h-screen w-full overflow-hidden fixed top-0 left-0 z-40">
+        <!-- Overlay for blurring content behind the carousel -->
+        <!-- This div applies a semi-transparent background and the backdrop-filter blur to content *behind* the fixed carousel -->
+        <div class="absolute inset-0 bg-[#121212] bg-opacity-50 backdrop-filter backdrop-blur-md"></div>
+
+        <!-- Close Button for the banner -->
+        <!-- Adjusted top position to ensure visibility, increased size, and explicitly set pointer-events-auto -->
+        <button id="close-carousel-btn" class="absolute top-20 right-6 text-white text-3xl bg-[#222831] bg-opacity-70 rounded-full w-12 h-12 flex items-center justify-center hover:bg-opacity-90 transition duration-300 z-50 pointer-events-auto">
+            &times;
+        </button>
+
+        <!-- Carousel slides container -->
+        <div id="carousel-container" class="flex h-full transition-transform duration-700 ease-in-out">
+            <!-- Slide 1 -->
+            <div class="carousel-slide min-w-full flex items-center justify-center relative">
+                <!-- Background image for slide 1 with blur and opacity -->
+                <img src="images/bck.png" alt="Carousel Background 1" class="absolute inset-0 w-full h-full object-cover opacity-50 blur-none">
+                <!-- Gradient overlay for text readability -->
+                <div class="absolute inset-0 bg-gradient-to-t from-[#121212] to-transparent"></div>
+                <!-- Content for slide 1 -->
+                <div class="relative z-10 text-center px-4">
+                    <h2 class="text-5xl md:text-7xl font-extrabold mb-4 text-white drop-shadow-lg">The Best Streaming Experience</h2>
+                    <p class="text-lg md:text-xl text-[#EEEEEE] max-w-3xl mx-auto mb-8">
+                        CUP Entertainment is the best streaming experience for watching your favorite movies and shows on demand anytime, anywhere. With CUP Entertainment, you can enjoy a wide variety of content, including the latest blockbusters, classic movies, popular TV shows, and more. You can also create your own watchlists, so you can easily find the content you want to watch.
+                    </p>
+                    <!-- Modified: Changed start-watching-now-btn to scroll to start-free-trial-section -->
+                    <button id="start-watching-now-btn" class="bg-[#00ADB5] hover:bg-[#009da3] text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 flex items-center mx-auto">
+                        Start Watching Now
+                    </button>
+                </div>
+            </div>
+            <!-- Slide 2 -->
+            <div class="carousel-slide min-w-full flex items-center justify-center relative">
+                <!-- Background image for slide 2 with blur and opacity -->
+                <img src="images/bck.png" alt="Carousel Background 2" class="absolute inset-0 w-full h-full object-cover opacity-50 blur-none">
+                <!-- Gradient overlay for text readability -->
+                <div class="absolute inset-0 bg-gradient-to-t from-[#121212] to-transparent"></div>
+                <!-- Content for slide 2 -->
+                <div class="relative z-10 text-center px-4">
+                    <h2 class="text-5xl md:text-7xl font-extrabold mb-4 text-white drop-shadow-lg">Explore Our Wide Variety of Categories</h2>
+                    <p class="text-lg md:text-xl text-[#EEEEEE] max-w-3xl mx-auto mb-8">
+                        Whether you're looking for a comedy to make you laugh, a drama to make you think, or a documentary to learn something new, CUP Entertainment has something for everyone. Dive into our diverse collection and discover your next favorite.
+                    </p>
+                    <div class="flex justify-center space-x-4">
+                        <!-- Modified: Removed open-form-trigger from category spans -->
+                        <span class="bg-[#00ADB5] text-white px-6 py-3 rounded-full text-lg font-semibold shadow-md cursor-pointer hover:bg-[#009da3] transition duration-300">Movies</span>
+                        <span class="bg-[#00ADB5] text-white px-6 py-3 rounded-full text-lg font-semibold shadow-md cursor-pointer hover:bg-[#009da3] transition duration-300">Drama</span>
+                        <span class="bg-[#00ADB5] text-white px-6 py-3 rounded-full text-lg font-semibold shadow-md cursor-pointer hover:bg-[#009da3] transition duration-300">Live TV</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Buttons - positioned bottom right -->
+        <div class="absolute bottom-6 right-6 flex space-x-4 z-20">
+            <button id="prev-slide" class="bg-[#00ADB5] hover:bg-[#009da3] text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition duration-300 text-2xl">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+            <button id="next-slide" class="bg-[#00ADB5] hover:bg-[#009da3] text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition duration-300 text-2xl">
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- Main Content Sections (Movie Grids and New Sections) -->
+    <!-- Added mt-screen to push content below the fixed carousel banner -->
+    <main class="py-12 px-6 md:px-12 relative z-30 mt-screen bg-[#121212]">
+        <!-- Trending Now Section -->
+        <section class="mb-12">
+            <h3 class="text-3xl font-bold mb-6 text-white">Trending Now</h3>
+            <div id="trending-now-grid" class="movie-grid">
+                <!-- Images will be loaded here by JavaScript -->
+            </div>
+        </section>
+
+        <!-- New Releases Section -->
+        <section class="mb-12">
+            <h3 class="text-3xl font-bold mb-6 text-white">New Releases</h3>
+            <div id="new-releases-grid" class="movie-grid">
+                <!-- Images will be loaded here by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Live TV Section (formerly Continue Watching) -->
+        <section class="mb-12">
+            <h3 class="text-3xl font-bold mb-6 text-white">Live TV</h3>
+            <div id="live-tv-grid" class="movie-grid">
+                <!-- Images will be loaded here by JavaScript -->
+            </div>
+        </section>
+
+        <!-- About Us Section (This section is now a separate page) -->
+        <!-- The content below is a placeholder for the main page, but the full About Us content is in about.html -->
+        <section class="mb-12 py-8 bg-[#1F242D] rounded-lg shadow-xl">
+            <h3 class="text-3xl font-bold mb-6 text-[#00ADB5] text-center">About CUP Entertainment</h3>
+            <p class="text-lg text-[#EEEEEE] max-w-3xl mx-auto text-center px-4">
+                Learn more about our mission, vision, and what makes CUP Entertainment your premier streaming destination.
+                <a href="about.html" class="text-[#00ADB5] hover:underline">Read More</a>
+                <a href="contact.html" class="text-[#00ADB5] hover:underline">Read More</a>
+            </p>
+        </section>
+
+        <!-- OTT Highlighted Section -->
+        <section class="mb-12 py-8 bg-[#1F242D] rounded-lg shadow-xl">
+            <h3 class="text-3xl font-bold mb-6 text-[#00ADB5] text-center">OTT Highlights</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto px-4">
+                <div class="bg-[#222831] p-6 rounded-lg shadow-md text-center">
+                    <h4 class="text-xl font-semibold mb-2 text-white">Exclusive Content</h4>
+                    <p class="text-[#B0BEC5]">Access to a unique collection of films and series you won't find anywhere else.</p>
+                </div>
+                <div class="bg-[#222831] p-6 rounded-lg shadow-md text-center">
+                    <h4 class="text-xl font-semibold mb-2 text-white">4K Ultra HD Streaming</h4>
+                    <p class="text-[#B0BEC5]">Experience breathtaking visuals with our crystal-clear 4K streaming quality.</p>
+                </div>
+                <div class="bg-[#222831] p-6 rounded-lg shadow-md text-center">
+                    <h4 class="text-xl font-semibold mb-2 text-white">Multi-Device Support</h4>
+                    <p class="text-[#B0BEC5]">Watch on your TV, phone, tablet, or computer – anytime, anywhere.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section class="mb-12 py-8 bg-[#1F242D] rounded-lg shadow-xl">
+            <h3 class="text-3xl font-bold mb-6 text-[#00ADB5] text-center">Explore Our Categories</h3>
+            <div class="flex flex-wrap justify-center gap-4 px-4">
+                <!-- Modified: Removed open-form-trigger from category spans -->
+                <span class="bg-[#00ADB5] text-white px-6 py-3 rounded-full text-lg font-semibold shadow-md cursor-pointer hover:bg-[#009da3] transition duration-300">Movies</span>
+                <span class="bg-[#00ADB5] text-white px-6 py-3 rounded-full text-lg font-semibold shadow-md cursor-pointer hover:bg-[#009da3] transition duration-300">Drama</span>
+                <span class="bg-[#00ADB5] text-white px-6 py-3 rounded-full text-lg font-semibold shadow-md cursor-pointer hover:bg-[#009da3] transition duration-300">Live TV</span>
+            </div>
+        </section>
+
+        <!-- New Section: Start Free Trial Today (Moved to the end) -->
+        <section id="start-free-trial-section" class="mb-12 py-8 bg-[#1F242D] rounded-lg shadow-xl text-center">
+            <h3 class="text-3xl font-bold mb-6 text-[#00ADB5]">Start Your Free Trial Today!</h3>
+            <p class="text-lg text-[#EEEEEE] max-w-3xl mx-auto px-4 mb-8">
+                Unlock unlimited entertainment. Enjoy exclusive movies, TV shows, and live events. Cancel anytime.
+            </p>
+            <button id="open-form-btn" class="bg-[#00ADB5] hover:bg-[#009da3] text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 flex items-center mx-auto">
+                Start Free Trial
+            </button>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <!-- Updated footer background and text colors -->
+    <footer class="bg-[#222831] py-8 px-6 md:px-12 text-center text-[#B0BEC5] relative z-30">
+        <div class="mb-4 space-x-6">
+            <!-- Modified: Changed href to scroll to section and removed open-form-trigger -->
+            <a href="#start-free-trial-section" class="hover:text-white transition duration-300">Terms of Use</a>
+            <a href="privacy_policy.html" class="hover:text-white transition duration-300">Privacy Policy</a>
+            <a href="#start-free-trial-section" class="hover:text-white transition duration-300">Cookie Preferences</a>
+            <a href="#start-free-trial-section" class="hover:text-white transition duration-300">Help Center</a>
+        </div>
+        <p class="mb-2 font-bold">CUP Entertainment Global Limited</p>
+        <p class="mb-2">
+            <i class="fas fa-phone"></i> +97155290862
+          </p>
+          
+          <p class="mb-2">
+            <i class="fas fa-envelope"></i> Support@cupentertainment.com
+          </p>
+        <p class="mb-2">Rm 1203, 12/F, TOWER 3 CHINA HONG KONG CITY, 33 CANTON RD TSIM SHA TSUI HONG KONG</p>
+        <p>&copy; 2025 CUP Entertainment. All rights reserved.</p>
+    </footer>
+
+    <!-- Registration Form Section (Now part of a modal) -->
+    <!-- This section is hidden by default and will be shown as a modal -->
+    <!-- Moved outside the <main> tag to ensure it appears above all other content -->
+    <div id="registration-modal-overlay" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-[1000000] hidden">
+        <!-- Increased max-w to max-w-4xl and removed overflow-y-auto from here -->
+        <!-- Removed mt-16 to allow flex centering to work properly -->
+        <div id="registration-modal" class="bg-[#1F242D] rounded-lg shadow-xl max-w-4xl mx-auto p-6 relative w-full md:w-3/4 lg:w-2/3 xl:w-1/2 max-h-[90vh] overflow-y-auto">
+            <!-- Close button for the modal -->
+            <!-- Adjusted top to ensure it's not hidden by the main header -->
+            <button id="close-modal-btn" class="absolute top-3 right-3 text-white text-2xl hover:text-[#00ADB5] z-[1000001]">&times;</button>
+
+            <!-- Added max-h-[calc(100vh-6rem)] and overflow-y-auto to the form container -->
+            <div id="registration-form-container" class="pr-4 custom-scrollbar">
+                <h3 class="text-3xl font-bold mb-6 text-[#00ADB5] text-center">Join CUP Entertainment Global</h3>
+                <p class="text-lg text-[#EEEEEE] text-center mb-8">
+                    CUP Entertainment Global is setting a new standard in digital entertainment. From original series and international blockbusters to live sports and 24/7 TV, we're building something extraordinary. Register now to receive early access invitations, curated updates, and exclusive content previews—tailored just for you.
+                </p>
+                <form id="registration-form" class="space-y-6">
+                    <div>
+                        <label for="fullName" class="block text-white text-sm font-semibold mb-2">Full Name</label>
+                        <input type="text" id="fullName" name="fullName" required
+                               class="w-full p-3 rounded-md bg-[#222831] text-[#EEEEEE] border border-[#393E46] focus:outline-none focus:ring-2 focus:ring-[#00ADB5]">
+                    </div>
+                    <div>
+                        <label for="emailAddress" class="block text-white text-sm font-semibold mb-2">Email Address</label>
+                        <input type="email" id="emailAddress" name="emailAddress" required
+                               class="w-full p-3 rounded-md bg-[#222831] text-[#EEEEEE] border border-[#393E46] focus:outline-none focus:ring-2 focus:ring-[#00ADB5]">
+                    </div>
+                    <div>
+                        <label for="mobileNumber" class="block text-white text-sm font-semibold mb-2">Mobile Number (Optional)</label>
+                        <input type="tel" id="mobileNumber" name="mobileNumber"
+                               class="w-full p-3 rounded-md bg-[#222831] text-[#EEEEEE] border border-[#393E46] focus:outline-none focus:ring-2 focus:ring-[#00ADB5]">
+                    </div>
+                    <div>
+                        <label for="preferredDevice" class="block text-white text-sm font-semibold mb-2">Preferred Device</label>
+                        <select id="preferredDevice" name="preferredDevice" required
+                                class="w-full p-3 rounded-md bg-[#222831] text-[#EEEEEE] border border-[#393E46] focus:outline-none focus:ring-2 focus:ring-[#00ADB5]">
+                            <option value="">Select a device</option>
+                            <option value="smartphone">Smartphone</option>
+                            <option value="smarttv">Smart TV</option>
+                            <option value="laptop_desktop">Laptop/Desktop</option>
+                            <option value="tablet">Tablet</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-white text-sm font-semibold mb-2">Genres You Enjoy</label>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                            <label class="flex items-center text-[#EEEEEE]">
+                                <input type="checkbox" name="genres" value="drama" class="form-checkbox h-5 w-5 text-[#00ADB5] rounded focus:ring-[#00ADB5]">
+                                <span class="ml-2">Drama</span>
+                            </label>
+                            <label class="flex items-center text-[#EEEEEE]">
+                                <input type="checkbox" name="genres" value="thriller" class="form-checkbox h-5 w-5 text-[#00ADB5] rounded focus:ring-[#00ADB5]">
+                                <span class="ml-2">Thriller</span>
+                            </label>
+                            <label class="flex items-center text-[#EEEEEE]">
+                                <input type="checkbox" name="genres" value="comedy" class="form-checkbox h-5 w-5 text-[#00ADB5] rounded focus:ring-[#00ADB5]">
+                                <span class="ml-2">Comedy</span>
+                            </label>
+                            <label class="flex items-center text-[#EEEEEE]">
+                                <input type="checkbox" name="genres" value="action" class="form-checkbox h-5 w-5 text-[#00ADB5] rounded focus:ring-[#00ADB5]">
+                                <span class="ml-2">Action</span>
+                            </label>
+                            <label class="flex items-center text-[#EEEEEE]">
+                                <input type="checkbox" name="genres" value="sports" class="form-checkbox h-5 w-5 text-[#00ADB5] rounded focus:ring-[#00ADB5]">
+                                <span class="ml-2">Sports</span>
+                            </label>
+                            <label class="flex items-center text-[#EEEEEE]">
+                                <input type="checkbox" name="genres" value="documentaries" class="form-checkbox h-5 w-5 text-[#00ADB5] rounded focus:ring-[#00ADB5]">
+                                <span class="ml-2">Documentaries</span>
+                            </label>
+                            <label class="flex items-center text-[#EEEEEE]">
+                                <input type="checkbox" name="genres" value="kids" class="form-checkbox h-5 w-5 text-[#00ADB5] rounded focus:ring-[#00ADB5]">
+                                <span class="ml-2">Kids</span>
+                            </label>
+                            <label class="flex items-center text-[#EEEEEE]">
+                                <input type="checkbox" name="genres" value="reality" class="form-checkbox h-5 w-5 text-[#00ADB5] rounded focus:ring-[#00ADB5]">
+                                <span class="ml-2">Reality</span>
+                            </label>
+                            <label class="flex items-center text-[#EEEEEE]">
+                                <input type="checkbox" name="genres" value="other" class="form-checkbox h-5 w-5 text-[#00ADB5] rounded focus:ring-[#00ADB5]">
+                                <span class="ml-2">Other</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="checkbox" id="keepMeInLoop" name="keepMeInLoop" class="form-checkbox h-5 w-5 text-[#00ADB5] rounded focus:ring-[#00ADB5]">
+                        <label for="keepMeInLoop" class="ml-2 text-[#EEEEEE]">Keep me in the loop with exclusive updates and access.</label>
+                    </div>
+                    <button type="submit"
+                            class="w-full bg-[#00ADB5] hover:bg-[#009da3] text-white font-bold py-3 px-4 rounded-md shadow-lg transition duration-300">
+                        Register Now
+                    </button>
+                </form>
+            </div>
+
+            <!-- Thank You Message (initially hidden) -->
+            <div id="thank-you-message" class="hidden text-center py-10">
+                <h3 class="text-3xl font-bold mb-4 text-[#00ADB5]">You're in. Welcome to CUP Entertainment Global.</h3>
+                <p class="text-lg text-[#EEEEEE] max-w-2xl mx-auto">
+                    We’ve saved your spot for an exclusive first look into a world of high-quality content and next-generation streaming.
+                    Stay connected — exciting updates and personalized previews will be headed your way soon.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>
