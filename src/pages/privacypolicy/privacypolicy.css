@@ -1,0 +1,97 @@
+/* Base Styles */
+.privacy-page {
+  font-family: 'Inter', sans-serif;
+  background-color: #121212;
+  color: #EEEEEE;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+/* Content Container */
+.privacy-container {
+  width: 100%;
+  max-width: 93;
+  padding: 2rem;
+  margin: 2rem 0;
+}
+
+/* Policy Content Styling */
+.policy-content {
+  background-color: #1F242D;
+  border-radius: 0.5rem;
+  padding: 2rem;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+  margin-bottom: 50px
+}
+
+.privacy-container h1 {
+  color: #00ADB5;
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.privacy-container h2 {
+  color: #00ADB5;
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.privacy-container h3 {
+  color: white;
+  font-size: 2rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.privacy-container p,
+.privacy-container li {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.privacy-container ul {
+  padding-left: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.privacy-container li {
+  margin-bottom: 0.5rem;
+}
+
+.effective-date {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .privacy-container {
+    padding: 1rem;
+  }
+  
+  .policy-content {
+    padding: 1.5rem;
+  }
+  
+  .privacy-container h1 {
+    font-size: 2rem;
+  }
+  
+  .privacy-container h2 {
+    font-size: 1.5rem;
+  }
+  
+  .privacy-container h3 {
+    font-size: 1.3rem;
+  }
+}

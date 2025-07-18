@@ -1,0 +1,146 @@
+/* navbar Styles */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.navbar {
+  background-color: #121212;
+  opacity: 0.9;
+  padding-left: 3rem !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 50;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+
+/* Left Side Container */
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+/* Logo Link */
+.logo-link {
+  display: flex;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.logo-link:hover {
+  color: #ccc;
+}
+
+/* Logo Image */
+.logo-img {
+  height: 4rem;
+  width: 7rem; /* equivalent to w-39 (arbitrary scale) */
+  margin-right: 0.5rem;
+}
+
+/* Nav Links (Desktop only) */
+.nav-links {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .nav-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .nav-links a {
+    color: #EEEEEE;
+    text-decoration: none;
+    transition: color 0.3s;
+    font-size: 18px;
+    
+  }s
+
+  .nav-links a:hover {
+    color: rgb(0, 73, 141);
+  }
+}
+
+/* Mobile Button */
+.menu-button {
+  display: block;
+  color: white;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+@media (min-width: 768px) {
+  .menu-button {
+    display: none;
+  }
+}
+/* Mobile dropdown menu style */
+.mobile-nav-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #121212;
+  padding: 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  z-index: 99;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.mobile-menu-link {
+  color: white;
+  text-decoration: none;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-menu-link:last-child {
+  border-bottom: none;
+}
+
+.mobile-menu-link:hover {
+  color: #ccc;
+}
+.menu-button {
+  display: block;
+  color: white;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  outline: none;
+  margin-left: auto;
+  margin-right: 4rem; /* add some space from the edge */
+  z-index: 100;
+}
+
+
+
+@media (min-width: 768px) {
+  .menu-button {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .nav-links {
+    display: none;
+  }
+
+  .menu-button {
+    display: block;
+  }
+}
+
+/* Existing CSS already hides .nav-links on small screens */

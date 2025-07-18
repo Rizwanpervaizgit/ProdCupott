@@ -1,0 +1,50 @@
+/* Global font if not already set elsewhere */
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Section styling */
+.categories-section {
+  width: 93vw;
+  margin: 0 3vw 3rem;
+  padding: 2rem 1rem;
+  background-color: #1F242D;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Heading styling */
+.section-heading {
+  font-size: 1.875rem; /* text-3xl */
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #00ADB5;
+  text-align: center;
+}
+
+/* Container for categories */
+.categories-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0 1rem;
+}
+
+/* Pill-style category buttons */
+.category-pill {
+  background-color: #00ADB5;
+  color: white;
+  /* margin-left: 60px; */
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.category-pill:hover {
+  background-color: #009da3;
+}

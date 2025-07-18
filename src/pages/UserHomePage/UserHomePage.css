@@ -1,0 +1,23 @@
+/* Layout setup */
+.home-container {
+  display: flex;
+  min-height: 100vh;
+  margin-left: 60px;
+}
+
+.content-wrapper {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.content-wrapper footer {
+  padding-left: 0 !important;
+  margin: 0;
+}
+
+.main-content {
+  flex-grow: 1;
+  overflow-y: auto;
+}

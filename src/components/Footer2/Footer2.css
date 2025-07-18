@@ -1,0 +1,44 @@
+.footer {
+  font-family: 'Segoe UI', sans-serif;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  width: calc(100vw - 4rem) !important;
+  background-color: #111; /* Just to ensure bg-dark works */
+}
+
+.footer ul li {
+  margin-bottom: 6px;
+  cursor: pointer;
+  color: #aaa;
+}
+
+.footer ul li:hover {
+  color: #fff;
+}
+
+.icon-box {
+  background-color: #222;
+  padding: 8px 10px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+.icon-box:hover {
+  background-color: #444;
+}
+
+/* Only add margin-left on wider screens */
+.rights {
+  margin-left: 0;
+}
+
+@media screen and (min-width: 992px) {
+  .rights {
+    margin-left: 10rem;
+  }
+}

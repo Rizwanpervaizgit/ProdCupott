@@ -1,0 +1,46 @@
+/* StartFreeTrial Section Styling */
+
+.start-free-trial {
+  width: 93vw;
+  margin: 0 3vw 3rem;
+  margin-bottom: 3rem; /* mb-12 */
+  padding: 2rem; /* py-8 */
+  background-color: #1F242D;
+  border-radius: 0.5rem; /* rounded-lg */
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.trial-heading {
+  font-size: 1.875rem; /* text-3xl */
+  font-weight: bold;
+  margin-bottom: 1.5rem; /* mb-6 */
+  color: #00ADB5;
+}
+
+.trial-description {
+  font-size: 1.125rem; /* text-lg */
+  color: #EEEEEE;
+  max-width: 48rem; /* max-w-3xl */
+  margin: 0 auto 2rem auto; /* mx-auto mb-8 */
+  padding: 0 1rem; /* px-4 */
+}
+
+.trial-button {
+  background-color: #00ADB5;
+  color: white;
+  font-weight: bold;
+  padding: 0.75rem 2rem; /* py-3 px-8 */
+  border: none;
+  border-radius: 9999px; /* rounded-full */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.trial-button:hover {
+  background-color: #009da3;
+}
