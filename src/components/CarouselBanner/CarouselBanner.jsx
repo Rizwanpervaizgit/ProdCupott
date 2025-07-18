@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './CarouselBanner.css';
+import './carouselBanner.css';
 import bck from '../../assets/images/bck.png';
 
 const CarouselBanner = () => {
