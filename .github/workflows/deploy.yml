@@ -40,7 +40,7 @@ jobs:
       if: github.ref == 'refs/heads/main'
       run: |
         ssh ${{ secrets.PROD_USER }}@${{ secrets.PROD_HOST }} << 'EOF'
-          /var/www/cupentertainment.com
+          cd /var/www/cupentertainment.com
           git pull origin main
           #npm install
           #pm2 restart your-app-name
