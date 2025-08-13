@@ -771,26 +771,31 @@ document.getElementById('registerForm').addEventListener('submit', function(e) {
         <!--<< Main.js >>-->
         <script src="assets/js/main.js"></script>
 <script>
-    // Select all links except About and Contact
-    document.querySelectorAll('a').forEach(link => {
-        const href = link.getAttribute('href');
+ document.querySelectorAll('a').forEach(link => {
+    const href = link.getAttribute('href');
 
-        if (href && (href.includes('about') || href.includes('contact'))) {
-            return; // skip About and Contact
-        }
+    // Skip links that should not trigger the modal (e.g., Home link)
+    if (href === "index.html") {
+        return; // Don't trigger modal for Home link
+    }
 
-        link.addEventListener('click', function(e) {
-            e.preventDefault(); // stop navigation
+    if (href && (href.includes('about') || href.includes('contact'))) {
+        return; // skip About and Contact
+    }
 
-            // Show modal
-            document.querySelector('.modal-overlay').classList.add('active');
+    link.addEventListener('click', function(e) {
+        e.preventDefault(); // stop navigation
 
-            // Hide modal after 2 seconds
-            setTimeout(() => {
-                document.querySelector('.modal-overlay').classList.remove('active');
-            }, 2000);
-        });
+        // Show modal
+        document.querySelector('.modal-overlay').classList.add('active');
+
+        // Hide modal after 2 seconds
+        setTimeout(() => {
+            document.querySelector('.modal-overlay').classList.remove('active');
+        }, 2000);
     });
+});
+
 </script>
 
 <script>
