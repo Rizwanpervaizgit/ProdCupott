@@ -1,138 +1,48 @@
-
 name: Auto Deploy
 
-
-
-
-
 on:
-
-
   push:
-
-
     branches:
-
-
       - development
-
-
       - main
 
-
-
-
-
 jobs:
-
-
   deploy:
-
-
     runs-on: ubuntu-latest
 
-
-
-
-
     steps:
-
-
     - name: Checkout Code
-
-
       uses: actions/checkout@v3
 
-
-
-
-
     - name: Set SSH Key
-
-
       run: |
-
-
         mkdir -p ~/.ssh
-
-
         echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-
-
         chmod 600 ~/.ssh/id_rsa
 
-
-
-
-
     - name: Add Known Hosts
-
-
       run: |
-
-
         ssh-keyscan -H ${{ secrets.DEV_HOST }} >> ~/.ssh/known_hosts
-
-
         ssh-keyscan -H ${{ secrets.PROD_HOST }} >> ~/.ssh/known_hosts
 
-
-
-
-
     - name: Deploy to Dev
-
-
       if: github.ref == 'refs/heads/development'
-
-
       run: |
-
-
         ssh ${{ secrets.DEV_USER }}@${{ secrets.DEV_HOST }} << 'EOF'
-
-
-          cd /var/www/cupentertainment.com
-
-
+          cd /var/www/dev.cupentertainment.com
           git pull origin development
-
-
           #npm install  # or pip install -r requirements.txt, etc.
-
-
           #pm2 restart your-app-name  # or systemctl restart your-app.service
-
-
+          sudo systemctl restart nginx.service
         EOF
 
-
-
-
-
     - name: Deploy to Prod
-
-
       if: github.ref == 'refs/heads/main'
-
-
       run: |
-
-
         ssh ${{ secrets.PROD_USER }}@${{ secrets.PROD_HOST }} << 'EOF'
-
-
-          cd /var/www/cupentertainment.com
-
-
+          /var/www/cupentertainment.com
           git pull origin main
-
-
           #npm install
-
-
           #pm2 restart your-app-name
-
-		  sudo systemctl restart nginx.service
-
+          sudo systemctl restart nginx.service
         EOF
