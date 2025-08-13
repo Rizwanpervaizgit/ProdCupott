@@ -213,56 +213,56 @@
 <!-- Modal HTML -->
 
 <div id="customModal" class="modal-overlay">
-  <div class="modal-content">
-    <button class="close-btn">&times;</button>
-    <h2>Register</h2>
-    <form id="registerForm">
-      <div class="form-group">
-        <label for="name">Full Name</label>
-        <input type="text" id="name" name="name" placeholder="Enter your name" required>
-      </div>
-
-      <div class="form-group">
-        <label for="email">Email Address</label>
-        <input type="email" id="email" name="email" placeholder="Enter your email" required>
-      </div>
-
-      <div class="form-group">
-        <label for="mobile">Mobile Number <span style="font-weight: normal;">(Optional)</span></label>
-        <input type="tel" id="mobile" name="mobile" placeholder="Enter your mobile number">
-      </div>
-
-      <div class="form-group">
-        <label for="device">Preferred Device</label>
-        <select id="device" name="device" required>
-          <option value="">Select a device</option>
-          <option value="mobile">Mobile</option>
-          <option value="tablet">Tablet</option>
-          <option value="laptop">Laptop</option>
-          <option value="smart-tv">Smart TV</option>
-          <option value="desktop">Desktop</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label>Genres You Enjoy</label>
-        <div class="checkbox-group">
-          <label><input type="checkbox" name="genres" value="drama"> Drama</label>
-          <label><input type="checkbox" name="genres" value="thriller"> Thriller</label>
-          <label><input type="checkbox" name="genres" value="comedy"> Comedy</label>
-          
-          <label><input type="checkbox" name="genres" value="other"> Other</label>
+    <div class="modal-content">
+      <button class="close-btn">&times;</button>
+      <h2>Register</h2>
+      <form id="registerForm">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" placeholder="Enter your name" required>
         </div>
-      </div>
-
-      <div class="form-group">
-        <label><input type="checkbox" name="updates" value="yes"> Keep me in the loop with exclusive updates and access.</label>
-      </div>
-
-      <button type="submit" class="submit-btn">Register</button>
-    </form>
+  
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+  
+        <div class="form-group">
+          <label for="mobile">Mobile Number <span style="font-weight: normal;">(Optional)</span></label>
+          <input type="tel" id="mobile" name="mobile" placeholder="Enter your mobile number">
+        </div>
+  
+        <div class="form-group">
+          <label for="device">Preferred Device</label>
+          <select id="device" name="device" required>
+            <option value="">Select a device</option>
+            <option value="mobile">Mobile</option>
+            <option value="tablet">Tablet</option>
+            <option value="laptop">Laptop</option>
+            <option value="smart-tv">Smart TV</option>
+            <option value="desktop">Desktop</option>
+          </select>
+        </div>
+  
+        <div class="form-group">
+          <label>Genres You Enjoy</label>
+          <div class="checkbox-group">
+            <label><input type="checkbox" name="genres" value="drama"> Drama</label>
+            <label><input type="checkbox" name="genres" value="thriller"> Thriller</label>
+            <label><input type="checkbox" name="genres" value="comedy"> Comedy</label>
+            <label><input type="checkbox" name="genres" value="other"> Other</label>
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label><input type="checkbox" name="updates" value="yes"> Keep me in the loop with exclusive updates and access.</label>
+        </div>
+  
+        <button type="submit" class="submit-btn">Register</button>
+      </form>
+    </div>
   </div>
-</div>
+  
 
 
 <!-- <script>
@@ -499,7 +499,7 @@ document.getElementById('registerForm').addEventListener('submit', function(e) {
     <div class="container">
         <div class="section-title text-center">
         </br>
-            <span class="wow fadeInUp" style="margin-top: 2%;">4k streaming in different languages</span>
+            <span class="wow fadeInUp" style="margin-top: 2%;">4K streaming in different languages</span>
 
             <!-- Minimal styled drop‑in language slider: copy into your page -->
 <div id="lang-slider" data-speed="60">
@@ -764,20 +764,17 @@ document.getElementById('registerForm').addEventListener('submit', function(e) {
         <!--<< Main.js >>-->
         <script src="assets/js/main.js"></script>
 <script>
- document.querySelectorAll('a').forEach(link => {
+  document.querySelectorAll('a').forEach(link => {
     const href = link.getAttribute('href');
 
-    // Skip links that should not trigger the modal (e.g., Home link)
-    if (href === "index.html") {
-        return; // Don't trigger modal for Home link
+    // Skip the links that should navigate normally (like Privacy Policy, Contact, etc.)
+    if (href === "privacy.html" || href === "about.html" || href === "contactUS.html") {
+        return; // Allow normal navigation for Privacy Policy and other pages
     }
 
-    if (href && (href.includes('about') || href.includes('contact') || href.includes('privacy'))) {
-        return; // skip About and Contact
-    }
-
+    // If link should trigger modal, prevent default action and show modal
     link.addEventListener('click', function(e) {
-        e.preventDefault(); // stop navigation
+        e.preventDefault(); // Prevent navigation
 
         // Show modal
         document.querySelector('.modal-overlay').classList.add('active');
