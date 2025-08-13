@@ -182,7 +182,7 @@ input {
 
 .servie-card-image-items {
   overflow: hidden;
-  border-radius: 10%;                    /* ensures rounded corners clip the image */
+  border-radius: 4%;                    /* ensures rounded corners clip the image */
   background-size: cover;              /* important: image covers the div */
   background-position: top;
   background-repeat: no-repeat;
@@ -348,9 +348,6 @@ input {
   align-items: center; /* center horizontally */
   text-align: center; /* ensure text centers */
   gap: 8px; /* space between lines */
-  margin-top: 10rem !important;
-  
-
 }
 
 .section-title span {
@@ -392,8 +389,9 @@ body {
 
 .countdown {
   font-size: 1.2rem;
-  color: #b237b2;
+  color: rgba(255, 255, 255, 0.571);
   margin-bottom: 1.5rem;
+  
 }
 
 /* Round Video */
@@ -668,6 +666,43 @@ body {
   }
   .contact-container h2 {
     font-size: 1.6rem;
+  }
+
+
+  .scroll-wrapper {
+    overflow-x: auto;
+    padding-bottom: 15px;
+  }
+  
+  .scroll-wrapper .row {
+    flex-wrap: nowrap;
+  }
+  
+  .servie-card-image-items {
+    width: 280px; /* Fixed width for cards */
+    height: 350px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    flex-shrink: 0;
+  }
+  
+  @media (max-width: 768px) {
+    .servie-card-image-items {
+      width: 240px;
+      height: 300px;
+    }
+  }
+  .scroll-wrapper {
+    scroll-behavior: smooth;
+  }
+
+  .scroll-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+  .scroll-wrapper {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }
 
