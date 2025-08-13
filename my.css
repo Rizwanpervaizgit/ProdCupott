@@ -350,6 +350,8 @@ input {
   gap: 8px; /* space between lines */
 }
 
+
+
 .section-title span {
   font-size: 18px;
   font-weight: 500;
@@ -704,6 +706,32 @@ body {
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
+
+  .about-image {
+    position: relative; /* Make the container relative */
+    overflow: hidden;   /* Hide the overflow of the image */
+}
+
+.about-image::before {
+    content: ""; /* Create an empty content */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('assets/img/images/about.png'); /* Set the background image */
+    background-size: cover; /* Cover the entire area */
+    background-position: center; /* Center the background */
+    z-index: -1; /* Place it behind other content */
+    opacity: 0; /* Initially make it invisible */
+    transition: opacity 2s ease-in-out; /* Fade effect */
+}
+
+/* Add a class or event to trigger the opacity change */
+.about-image.fade-in::before {
+    opacity: 1; /* Set the opacity to 1 for fade-in effect */
+}
+
 }
 
 
