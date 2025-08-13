@@ -277,7 +277,7 @@ input {
 
 /* Logo responsiveness fix */
 .logo img {
-    max-width: 140px; /* default desktop size */
+    max-width: 105px; /* default desktop size */
     height: auto;
     transition: max-width 0.3s ease;
 }

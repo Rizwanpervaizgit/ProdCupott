@@ -11800,5 +11800,5 @@ p.sticky-label {
 .single-footer-widget .widget-head img {
     width: auto;
     height: auto;
-    max-width: 180px; /* or whatever fits your footer layout */
+    max-width: 90px; /* or whatever fits your footer layout */
 }

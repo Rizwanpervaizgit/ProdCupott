@@ -7,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="author" content="modinatheme">
-        <meta name="description" content="Azent - Creative Digital Agency HTML5 Template">
+        <meta name="description" content="Cupent Entertainment">
         <!-- ======== Page title ============ -->
         <title>CUP Entertainment</title>
         <!--<< Favicon >>-->
@@ -185,13 +185,13 @@
                                         </li>
                                        
                                         <li>
-                                            <a href="aboutUs.html">About</a>
+                                            <a href="aboutUs.html">About Us</a>
                                         </li>
                                                                     
                                         
                                         
                                         <li>
-                                            <a href="contactUS.html">Contact</a>
+                                            <a href="contactUS.html">Contact Us</a>
                                         </li>
 
                                         <li>
@@ -530,7 +530,8 @@ document.getElementById('registerForm').addEventListener('submit', function(e) {
 </div>
 
 <style>
-  #lang-slider {
+ 
+ #lang-slider {
     --gap: 16px;
     --speed: 25s;
     position: relative;
@@ -538,58 +539,93 @@ document.getElementById('registerForm').addEventListener('submit', function(e) {
     display: block;
     border-radius: 16px;
     padding: 12px 0;
-    background-color: #1a1919; /* Matched background color from image */
-    box-shadow: 0 8px 20px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.06);
-  }
-  #lang-slider::before,
-  #lang-slider::after {
-    content: ""; position: absolute; top:0; bottom:0; width: 80px; pointer-events:none; z-index: 2;
-  }
-  #lang-slider::before { left:0; background: linear-gradient(90deg, #1a1919 0%, transparent 100%); }
-  #lang-slider::after  { right:0; background: linear-gradient(270deg, #1a1919 0%, transparent 100%); }
+    background-color: #1a1919;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35), inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+    width: 100%; /* Ensure the slider takes full container width */
+}
 
-  #lang-slider .track {
-    display: inline-flex; gap: var(--gap);
-    white-space: nowrap; width: max-content;
+#lang-slider::before,
+#lang-slider::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 80px;
+    pointer-events: none;
+    z-index: 2;
+}
+
+#lang-slider::before {
+    left: 0;
+    background: linear-gradient(90deg, #1a1919 0%, transparent 100%);
+}
+
+#lang-slider::after {
+    right: 0;
+    background: linear-gradient(270deg, #1a1919 0%, transparent 100%);
+}
+
+#lang-slider .track {
+    display: inline-flex;
+    gap: var(--gap);
+    white-space: nowrap;
     will-change: transform;
     animation: slide-rtl var(--speed) linear infinite;
-  }
-  #lang-slider .item {
-   
-    padding: 10px 16px; border-radius: 12px;
-   
+}
+
+#lang-slider .item {
+    padding: 10px 16px;
+    border-radius: 12px;
     color: #e2e8f0 !important;
     text-decoration: none !important;
-    
     font: 600 14px/1.1 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-    
-  }
-  @keyframes slide-rtl {
-    from { transform: translateX(0); }
-    to   { transform: translateX(calc(var(--w, 0px) * -1)); }
-  }
-  #lang-slider:hover .track { animation-play-state: paused; }
-  @media (prefers-reduced-motion: reduce) {
-    #lang-slider .track { animation: none; }
-  }
+}
+
+@keyframes slide-rtl {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(calc(-100% / 2)); /* Adjusted to scroll across entire length */
+    }
+}
+
+#lang-slider:hover .track {
+    animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #lang-slider .track {
+        animation: none;
+    }
+}
+
+
 </style>
 
 <script>
-(function(){
-  const el = document.getElementById('lang-slider');
-  if(!el) return;
-  const speedAttr = parseFloat(el.getAttribute('data-speed'));
-  if (!isNaN(speedAttr)) el.style.setProperty('--speed', speedAttr + 's');
-  const original = Array.from(el.querySelectorAll('.item')).map(n=>n.outerHTML).join('');
-  el.innerHTML = `<div class="track">${original}${original}</div>`;
-  const track = el.firstElementChild;
-  const setWidth = () => {
-    const half = track.scrollWidth / 2;
-    el.style.setProperty('--w', half + 'px');
-  };
-  requestAnimationFrame(setWidth);
-  window.addEventListener('resize', () => { requestAnimationFrame(setWidth); });
+    (function () {
+    const el = document.getElementById('lang-slider');
+    if (!el) return;
+
+    const speedAttr = parseFloat(el.getAttribute('data-speed'));
+    if (!isNaN(speedAttr)) el.style.setProperty('--speed', speedAttr + 's');
+
+    const original = Array.from(el.querySelectorAll('.item')).map(n => n.outerHTML).join('');
+    el.innerHTML = `<div class="track">${original}${original}</div>`;
+
+    const track = el.firstElementChild;
+
+    const setWidth = () => {
+        // Update width to be the full length of the track
+        const trackWidth = track.scrollWidth;
+        el.style.setProperty('--w', trackWidth + 'px');
+    };
+
+    requestAnimationFrame(setWidth);
+    window.addEventListener('resize', () => { requestAnimationFrame(setWidth); });
 })();
+
 </script>
 
 
@@ -601,7 +637,7 @@ document.getElementById('registerForm').addEventListener('submit', function(e) {
         </div>
       
          <a class="text-area text-center mt-5 wow fadeInUp mb-5 d-block"
-   data-wow-delay=".4s" href="service-details.html" style="color: aliceblue; text-decoration: none;">Pre-Register Now</a>
+   data-wow-delay=".4s" href="" style="color: aliceblue; text-decoration: none;">Pre-Register Now</a>
     </div>
 </section>
 
@@ -665,7 +701,7 @@ document.getElementById('registerForm').addEventListener('submit', function(e) {
                         </div>
                         <ul class="list-area">
                             <li><a href="#">Help Center</a></li>
-                            <li><a href="contact.html">Contact Us</a></li>
+                            <li><a href="contactUS.html">Contact Us</a></li>
                         </ul>
                     </div>
                 </div>
@@ -678,7 +714,7 @@ document.getElementById('registerForm').addEventListener('submit', function(e) {
                         </div>
                         <div class="footer-content">
                             <ul class="list-area">
-                                <li><a href="#">Privacy Policy</a></li>
+                                <li><a href="contact.html">Privacy Policy</a></li>
                             </ul>
                             <p>
                                 Cup Entertainment is your ultimate destination for movies and TV shows. Stream unlimited content across all your devices with the best quality and user experience.
