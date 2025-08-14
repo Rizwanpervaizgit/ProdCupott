@@ -757,7 +757,9 @@ body {
   height: 200px;  /* Adjust as needed */
 }
 
-
+--swiper-theme-color{
+  color: #22c55e;
+}
 
 }
 

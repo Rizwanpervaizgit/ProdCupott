@@ -1,1202 +1,855 @@
-<!DOCTYPE html>
-<html lang="en">
-    <!--<< Header Area >>-->
-    <head>
-        <!-- ========== Meta Tags ========== -->
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="author" content="modinatheme">
-        <meta name="description" content="Cupent Entertainment">
-        <!-- ======== Page title ============ -->
-        <title>CUP Entertainment</title>
-        <!--<< Favicon >>-->
-        <link rel="shortcut icon" href="assets/img/fav-logo.png">
-        <!--<< Bootstrap min.css >>-->
-        <!-- Bootstrap 5 CSS CDN -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <!DOCTYPE html>
+    <html lang="en">
+        <!--<< Header Area >>-->
+        <head>
+            <!-- ========== Meta Tags ========== -->
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <meta name="author" content="modinatheme">
+            <meta name="description" content="Cupent Entertainment">
+            <!-- ======== Page title ============ -->
+            <title>CUP Entertainment</title>
+            <!--<< Favicon >>-->
+            <link rel="shortcut icon" href="assets/img/fav-logo.png">
+            <!--<< Bootstrap min.css >>-->
+            <!-- Bootstrap 5 CSS CDN -->
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
 
-        <!--<< Font Awesome.css >>-->
-        <link rel="stylesheet" href="assets/css/font-awesome.css">
-        <!--<< Animate.css >>-->
-        <link rel="stylesheet" href="assets/css/animate.css">
-        <!--<< Magnific Popup.css >>-->
-        <link rel="stylesheet" href="assets/css/magnific-popup.css">
-        <!--<< MeanMenu.css >>-->
-        <link rel="stylesheet" href="assets/css/meanmenu.css">
-        <!--<< Swiper Bundle.css >>-->
-        <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
-        <!--<< Nice Select.css >>-->
-        <link rel="stylesheet" href="assets/css/nice-select.css">
-        <!--<< Main.css >>-->
-        <link rel="stylesheet" href="assets/css/main.css">
+            <!--<< Font Awesome.css >>-->
+            <link rel="stylesheet" href="assets/css/font-awesome.css">
+            <!--<< Animate.css >>-->
+            <link rel="stylesheet" href="assets/css/animate.css">
+            <!--<< Magnific Popup.css >>-->
+            <link rel="stylesheet" href="assets/css/magnific-popup.css">
+            <!--<< MeanMenu.css >>-->
+            <link rel="stylesheet" href="assets/css/meanmenu.css">
+            <!--<< Swiper Bundle.css >>-->
+            <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+            <!--<< Nice Select.css >>-->
+            <link rel="stylesheet" href="assets/css/nice-select.css">
+            <!--<< Main.css >>-->
+            <link rel="stylesheet" href="assets/css/main.css">
+        
+            <!--<< Style.css >>-->
+            <link rel="stylesheet" href="style.css">
+            <link rel="stylesheet" href="my.css">
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <script src="/assets/js/script.js"></script>
+            <script>$(document).ready(function() {
+                $('select').niceSelect();
+            });</script>
+            <style>
+                #img-slider {
+            position: relative;
+            overflow: hidden;
+            padding: 5px 0; /* Added padding for better spacing */
+        }
+
+        #img-slider .scroll-wrapper {
+    display: flex;
+    overflow-x: hidden; /* Hide scrollbar */
+    white-space: nowrap; /* Prevent wrapping */
+    }
+
+    .servie-card-image-items {
+    display: inline-block; /* Change from flex to inline for smoother scrolling */
+    width: 300px;
+    height: 450px;
+    margin-right: 10px;
+    flex-shrink: 0; /* Prevent shrinking */
+    }
+
+        .servie-card-image-items:hover {
+            transform: scale(1.05); /* Slight zoom on hover */
+        }
+
+        #img-slider::before,
+        #img-slider::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100px;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        #img-slider::before {
+            left: 0;
+            background: linear-gradient(90deg, rgba(26, 25, 25, 0.9) 0%, transparent 100%);
+        }
+
+        #img-slider::after {
+            right: 0;
+            background: linear-gradient(270deg, rgba(26, 25, 25, 0.9) 0%, transparent 100%);
+        }
+
+        /* Hide scrollbar but keep functionality */
+        #img-slider .scroll-wrapper::-webkit-scrollbar {
+            display: none;
+        }
+            </style>
+            <script>
+        $(document).ready(function() {
+            $('select').niceSelect();
+    const wrapper = $('#scrollWrapper');
+    const content = wrapper.find('.row'); // The scrolling content container
+    const scrollSpeed = 1; // Pixels per frame (adjust for speed)
     
-        <!--<< Style.css >>-->
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="my.css">
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="/assets/js/script.js"></script>
-        <style>
-            #img-slider {
+    // Clone the content for seamless looping
+    content.clone().appendTo(wrapper);
+    
+    function scrollLeft() {
+        // Move left continuously
+        wrapper.scrollLeft(wrapper.scrollLeft() + scrollSpeed);
+        
+        // When we've scrolled one full width, reset to beginning seamlessly
+        if (wrapper.scrollLeft() >= content.width()) {
+        wrapper.scrollLeft(0);
+        }
+        
+        requestAnimationFrame(scrollLeft);
+    }
+    
+    // Start scrolling
+    scrollLeft();
+    });
+
+
+
+
+
+// Predefined launch date
+const launchDate = new Date("December 25, 2025 00:00:00").getTime();
+
+// Update countdown every second
+const timer = setInterval(function () {
+    const now = new Date().getTime();
+    const distance = launchDate - now;
+
+    if (distance <= 0) {
+        clearInterval(timer);
+        document.getElementById('days').textContent = '00';
+        document.getElementById('hours').textContent = '00';
+        document.getElementById('minutes').textContent = '00';
+        document.getElementById('seconds').textContent = '00';
+        return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById('days').textContent = String(days).padStart(2, '0');
+    document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+    document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+    document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+
+}, 1000);
+</script>
+
+</script>
+
+
+            </script>
+        </head>
+
+        <body>
+
+            <!-- Preloader Start -->
+            <!-- Preloader Start -->
+    <div id="preloader" class="preloader">
+    <div class="animation-preloader">
+        <div class="preloader-img">
+        <!-- Image from React preloader will be placed here -->
+        <img src="assets/img/pre-logo.png" alt="">
+        </div>
+        <div class="spinner"></div>
+
+    </div>
+
+    <div class="loader">
+        <div class="row">
+        <div class="col-3 loader-section section-left">
+            <div class="bg"></div>
+        </div>
+        <div class="col-3 loader-section section-left">
+            <div class="bg"></div>
+        </div>
+        <div class="col-3 loader-section section-right">
+            <div class="bg"></div>
+        </div>
+        <div class="col-3 loader-section section-right">
+            <div class="bg"></div>
+        </div>
+        </div>
+    </div>
+    </div>
+    <!-- Preloader End -->
+
+    <!-- Test Commit -->
+
+            <!--<< Mouse Cursor Start >>-->  
+            <div class="mouse-cursor cursor-outer"></div>
+            <div class="mouse-cursor cursor-inner"></div>
+
+            <!-- Offcanvas Area Start -->
+            <div class="fix-area">
+                <div class="offcanvas__info">
+                    <div class="offcanvas__wrapper">
+                        <div class="offcanvas__content">
+                            <div class="offcanvas__top mb-5 d-flex justify-content-between align-items-center">
+                                <div class="offcanvas__logo">
+                                    <a href="index.html">
+                                        <img src="assets/img/logo-dark.png" alt="logo-img">
+                                    </a>
+                                </div>
+                                <div class="offcanvas__close">
+                                    <button>
+                                    <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="mobile-menu fix mb-3"></div>
+                            <div class="offcanvas__contact">
+                                <h4>Contact Info</h4>
+                                <ul>
+                                    <li class="d-flex align-items-center">
+                                        <div class="offcanvas__contact-icon">
+                                            <i class="fal fa-map-marker-alt"></i>
+                                        </div>
+                                        <div class="offcanvas__contact-text">
+                                            <a target="_blank" href="#">Main Street, Melbourne, Australia</a>
+                                        </div>
+                                    </li>
+                                    <li class="d-flex align-items-center">
+                                        <div class="offcanvas__contact-icon mr-15">
+                                            <i class="fal fa-envelope"></i>
+                                        </div>
+                                        <div class="offcanvas__contact-text">
+                                            <a href="mailto:info@example.com"><span>info@example.com</span></a>
+                                        </div>
+                                    </li>
+                                    <li class="d-flex align-items-center">
+                                        <div class="offcanvas__contact-icon mr-15">
+                                            <i class="fal fa-clock"></i>
+                                        </div>
+                                        <div class="offcanvas__contact-text">
+                                            <a target="_blank" href="#">Mod-friday, 09am -05pm</a>
+                                        </div>
+                                    </li>
+                                    <li class="d-flex align-items-center">
+                                        <div class="offcanvas__contact-icon mr-15">
+                                            <i class="far fa-phone"></i>
+                                        </div>
+                                        <div class="offcanvas__contact-text">
+                                            <a href="tel:+11002345909">+11002345909</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="header-button mt-4">
+                                    <a href="contact.html" class="theme-btn text-center">
+                                        Contact
+                                    </a>
+                                </div>
+                                <div class="social-icon d-flex align-items-center">
+                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#"><i class="fab fa-twitter"></i></a>
+                                    <a href="#"><i class="fab fa-youtube"></i></a>
+                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="offcanvas__overlay"></div>
+
+            <!-- Header Area Start -->
+
+    <header>
+        <div id="header-sticky" class="header-1">
+            <div class="container-fluid">
+                <div class="mega-menu-wrapper">
+                    <div class="header-main">
+                        <div class="logo">
+                            <a href="index.html" class="header-logo">
+                                <img src="assets/img/logo-dark.png" alt="logo-img">
+                            </a>
+                            <a href="index.html" class="header-logo-2">
+                                <img src="assets/img/pre-logo.png" alt="logo-img">
+                        </a>
+                        </div>
+                        <div class="header-left">
+                            <div class="mean__menu-wrapper">
+                                <div class="main-menu">
+                                    <nav id="mobile-menu">
+                                        <ul>
+                                            <li class="has-dropdown active menu-thumb">
+                                                <a href="index.html">
+                                                Home 
+                                                </a>
+                                                
+                                            </li>
+                                            <li class="has-dropdown active d-lg-none">
+                                                <a href="team.html" class="border-none">
+                                                Home
+                                                <i class="fas fa-angle-down"></i>
+                                                </a>
+                                                <ul class="submenu">
+                                                    <li><a href="index.html">Home 01</a></li>
+                                                    <li><a href="index-2.html">Home 02</a></li>
+                                                    <li><a href="index-3.html">Home 03</a></li>
+                                                    <li><a href="index-4.html">Home 04</a></li>
+                                                </ul>
+                                            </li>
+                                        
+                                            <li>
+                                                <a href="aboutUs.html">About Us</a>
+                                            </li>
+                                                                        
+                                            
+                                            
+                                            <li>
+                                                <a href="contactUS.html">Contact</a>
+                                            </li>
+
+                                            <li>
+                                                <a class="text-area text-center mt-5 wow fadeInUp mb-5 d-block" href="PreRegisterNow.html" style="padding: 12px !important;color: aliceblue; text-decoration: none;max-width:fit-content">Pre-Register Now</a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Modal Overlay -->
+    <!-- Modal HTML -->
+
+    
+    
+
+
+    <!-- <script>
+    const passwordInput = document.getElementById('password');
+    const requirements = {
+        length: document.getElementById('req-length'),
+        uppercase: document.getElementById('req-uppercase'),
+        lowercase: document.getElementById('req-lowercase'),
+        number: document.getElementById('req-number'),
+        special: document.getElementById('req-special')
+    };
+
+    passwordInput.addEventListener('input', function() {
+        const value = passwordInput.value;
+        updateRequirement(requirements.length, value.length >= 8);
+        updateRequirement(requirements.uppercase, /[A-Z]/.test(value));
+        updateRequirement(requirements.lowercase, /[a-z]/.test(value));
+        updateRequirement(requirements.number, /[0-9]/.test(value));
+        updateRequirement(requirements.special, /[^A-Za-z0-9]/.test(value));
+    });
+
+    function updateRequirement(element, isValid) {
+        element.classList.toggle('valid', isValid);
+        element.classList.toggle('invalid', !isValid);
+    }
+
+    document.getElementById('registerForm').addEventListener('submit', function(e) {
+        const value = passwordInput.value;
+        if (!(value.length >= 8 &&
+            /[A-Z]/.test(value) &&
+            /[a-z]/.test(value) &&
+            /[0-9]/.test(value) &&
+            /[^A-Za-z0-9]/.test(value))) {
+            e.preventDefault();
+        }
+    });
+    </script> -->
+
+            <!-- Search Area Start -->
+            <div class="search-wrap">
+                <div class="search-inner">
+                    <i class="fas fa-times search-close" id="search-close"></i>
+                    <div class="search-cell">
+                        <form method="get">
+                            <div class="search-field-holder">
+                                <input type="search" class="main-search-input" placeholder="Search...">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Section Start -->
+    <section class="hero-section hero-1">
+        <div class="array-button">
+            <button 
+                class="array-prev" 
+                style="background: linear-gradient(135deg, #000000, #9d0dad);"
+                onmouseover="this.style.background='linear-gradient(135deg, #9d0dad, #000000)'" 
+                onmouseout="this.style.background='linear-gradient(135deg, #000000, #9d0dad)'">
+                <i class="fal fa-arrow-right"></i>
+            </button>
+
+            <button 
+                class="array-next" 
+                style="background: linear-gradient(135deg, #000000, #9d0dad);"
+                onmouseover="this.style.background='linear-gradient(135deg, #9d0dad, #000000)'" 
+                onmouseout="this.style.background='linear-gradient(135deg, #000000, #9d0dad)'">
+                <i class="fal fa-arrow-left"></i>
+            </button>
+        </div>
+
+
+                <div class="swiper hero-slider" height="200px">
+                    <div class="swiper-wrapper" height="200px">
+                        <div class="swiper-slide" height="200px">
+                            
+                            <div class="hero-image bg-cover" style="background-image: url('assets/img/images/image1.jpg');" height="200px"></div>
+                            <div class="container">
+                                <div class="row justify-content-center">
+                                    <div class="col-xl-12">
+                                    <div class="hero-content text-center">
+                                            <h3 class="text-white" data-animation="fadeInUp" data-delay="1.3s">
+                                                Cup Entertainment is a global OTT platform bringing premium webseries,<br> dramas, films, and original content to audiences worldwide.<br> Launching December 2025 — be the first to experience it!
+                                            </h3>
+                                            
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide" height="200px">
+                            
+                            <div class="hero-image bg-cover" style="background-image: url('assets/img/images/image2.jpg');" height="200px"></div>
+                            <div class="container">
+                                <div class="row justify-content-center">
+                                    <div class="col-xl-12">
+                                    <div class="hero-content text-center">
+                                            <h3 class="text-white" data-animation="fadeInUp" data-delay="1.3s">
+                                                Cup Entertainment is a global OTT platform bringing premium webseries,<br> dramas, films, and original content to audiences worldwide.<br> Launching December 2025 — be the first to experience it!
+                                            </h3>
+                                        
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide" height="200px">
+                        
+                            <div class="hero-image bg-cover" style="background-image: url('assets/img/images/image3.jpg');" height="200px"></div>
+                            <div class="container">
+                                <div class="row justify-content-center">
+                                    <div class="col-xl-12">
+                                    <div class="hero-content text-center">
+                                            <h3 class="text-white" data-animation="fadeInUp" data-delay="1.3s">
+                                                Cup Entertainment is a global OTT platform bringing premium webseries,<br> dramas, films, and original content to audiences worldwide.<br> Launching December 2025 — be the first to experience it!
+                                            </h3>
+                                            
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+    <!-- Countdown Component -->
+
+
+
+    <!-- About Section Start -->
+    <section class="about-section section-padding pt-0 fix">
+        <div class="container">
+            <div class="about-wrapper">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="about-image wow fadeInUp" data-wow-delay=".3s">
+                            <img src="assets/img/images/image8.png" alt="about-img">
+                            <div class="video-box wow fadeInUp" data-wow-delay=".5s">
+                                <!-- <img src="assets/img/images/image5.jpg" alt="about-img" style="width: 518px;height: 212px;"> -->
+                                <!-- <a href="https://www.youtube.com/watch?v=Cn4G2lZ_g2I" class="video-btn ripple video-popup">
+                                    <i class="flaticon-play-button"></i>
+                                </a> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mt-5 mt-lg-0">
+                        <div class="about-content">
+                        <div class="section-title mb-4">
+                            <h2 class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                            <span class="highlight-text">We Are CUP Entertainment - A Leading OTT Platform</span>
+                            
+                            </h2>
+                        </div>
+                    
+                        <p data-wow-delay=".5s" class="mt-3 wow fadeInUp" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
+                            Providing high-quality, on-demand streaming services. We bring the best content straight to your screen — anytime, anywhere.
+                        </p>
+                    
+                        <ul class="feature-list mt-4 wow fadeInUp" data-wow-delay=".6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;">
+                            <li><i class="fas fa-check-circle"></i> Wide variety of content</li>
+                            <li><i class="fas fa-check-circle"></i> Seamless streaming experience</li>
+                            <li><i class="fas fa-check-circle"></i> Custom user interface</li>
+                        </ul>
+                    
+                        </div>
+                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="countdown-section">
+    
+        <div class="container" style="max-width: 100% !important;">
+        <div class="countdown-wrapper">
+            <div class="cta-left text-center pt-5">
+            
+            <div class="countdown mt-4">
+                <span class="highlight-date col-md-12" style="margin-bottom: 5% !important; font-weight: bold;">LAUNCHING ON 25 DECEMBER 2025 </span>
+                
+                <div>
+                <span id="days" class="time-box">00</span>
+                <span class="label">Days</span>
+                </div>
+                <div>
+                <span id="hours" class="time-box">00</span>
+                <span class="label">Hours</span>
+                </div>
+                <div>
+                <span id="minutes" class="time-box">00</span>
+                <span class="label">Min</span>
+                </div>
+                <div>
+                <span id="seconds" class="time-box">00</span>
+                <span class="label">Sec</span>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    
+    <!-- Service Section Start -->
+    <section class="service-section section-padding pt-0" id="img-slider">
+        <div class="container" style="max-width:100%;">
+            <div class="scroll-wrapper" id="scrollWrapper">
+                <div class="row g-0 flex-nowrap">
+                    <div class="col-xl-2 col-lg-3 col-md-4wow fadeInUp" data-wow-delay=".3s">
+                        <div class="servie-card-image-items" style="background-image: url('assets/img/images/Ready-Steady-go-Poster-midsize.png');"></div>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4wow fadeInUp" data-wow-delay=".3s">
+                        <div class="servie-card-image-items" style="background-image: url('assets/img/images/Nadaan-Muhabbat-midsize.png');"></div>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4wow fadeInUp" data-wow-delay=".3s">
+                        <div class="servie-card-image-items" style="background-image: url('assets/img/images/Ladoo-shaadi-ka-midsize.png');"></div>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4wow fadeInUp" data-wow-delay=".3s">
+                        <div class="servie-card-image-items" style="background-image: url('assets/img/images/hashmat-and-family-midsize.png');"></div>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4wow fadeInUp" data-wow-delay=".3s">
+                        <div class="servie-card-image-items" style="background-image: url('assets/img/images/Dil-e-umeed-midsoze.png');"></div>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4wow fadeInUp" data-wow-delay=".3s">
+                        <div class="servie-card-image-items" style="background-image: url('assets/img/images/SABA-Eazy-Load-Wali-midsize.png');"></div>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4wow fadeInUp" data-wow-delay=".3s">
+                        <div class="servie-card-image-items" style="background-image: url('assets/img/images/Luka-Chuppi-Poster-midsize.png');"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+
+
+    <!-- Team Section Start -->
+    <section class="team-section fix section-padding pt-0">
+        <div class="container">
+            <div class="section-title text-center">
+            </br>
+                <span class="wow fadeInUp" style="margin-top: 2%;">4K streaming in different languages</span>
+
+                <!-- Minimal styled drop‑in language slider: copy into your page -->
+    <div id="lang-slider" data-speed="20">
+    <span class="item">English</span>
+    <span class="item">Mandarin Chinese</span>
+    <span class="item">Hindi</span>
+    <span class="item">Spanish</span>
+    <span class="item">French</span>
+    <span class="item">Arabic</span>
+    <span class="item">Bengali</span>
+    <span class="item">Punjabi</span>
+    <span class="item">Korean</span>
+    <span class="item">Malay</span>
+    <span class="item">Bengali</span>
+    <span class="item">Portuguese</span>
+    <span class="item">Russian</span>
+    <span class="item">Urdu</span>
+    <span class="item">Indonesian</span>
+    <span class="item">German</span>
+    <span class="item">Japanese</span>
+    <span class="item">Swahili</span>
+    <span class="item">Marathi</span>
+    <span class="item">Telugu</span>
+    <span class="item">Turkish</span>
+    <span class="item">Tamil</span>
+    <span class="item">Vietnamese</span>
+    <span class="item">Italian</span>
+    </div>
+
+    <style>
+    
+    #lang-slider {
+        --gap: 16px;
+        --speed: 21s;
         position: relative;
         overflow: hidden;
-        padding: 5px 0; /* Added padding for better spacing */
+        display: block;
+        border-radius: 16px;
+        padding: 12px 0;
+        background-color: #1a1919;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35), inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+        width: 100%; /* Ensure the slider takes full container width */
     }
 
-    #img-slider .scroll-wrapper {
-  display: flex;
-  overflow-x: hidden; /* Hide scrollbar */
-  white-space: nowrap; /* Prevent wrapping */
-}
-
-.servie-card-image-items {
-  display: inline-block; /* Change from flex to inline for smoother scrolling */
-  width: 300px;
-  height: 450px;
-  margin-right: 10px;
-  flex-shrink: 0; /* Prevent shrinking */
-}
-
-    .servie-card-image-items:hover {
-        transform: scale(1.05); /* Slight zoom on hover */
-    }
-
-    #img-slider::before,
-    #img-slider::after {
+    #lang-slider::before,
+    #lang-slider::after {
         content: "";
         position: absolute;
         top: 0;
         bottom: 0;
-        width: 100px;
+        width: 80px;
         pointer-events: none;
         z-index: 2;
     }
 
-    #img-slider::before {
+    #lang-slider::before {
         left: 0;
-        background: linear-gradient(90deg, rgba(26, 25, 25, 0.9) 0%, transparent 100%);
+        background: linear-gradient(90deg, #1a1919 0%, transparent 100%);
     }
 
-    #img-slider::after {
+    #lang-slider::after {
         right: 0;
-        background: linear-gradient(270deg, rgba(26, 25, 25, 0.9) 0%, transparent 100%);
+        background: linear-gradient(270deg, #1a1919 0%, transparent 100%);
     }
 
-    /* Hide scrollbar but keep functionality */
-    #img-slider .scroll-wrapper::-webkit-scrollbar {
-        display: none;
-    }
-        </style>
-        <script>
-    $(document).ready(function() {
-  const wrapper = $('#scrollWrapper');
-  const content = wrapper.find('.row'); // The scrolling content container
-  const scrollSpeed = 1; // Pixels per frame (adjust for speed)
-  
-  // Clone the content for seamless looping
-  content.clone().appendTo(wrapper);
-  
-  function scrollLeft() {
-    // Move left continuously
-    wrapper.scrollLeft(wrapper.scrollLeft() + scrollSpeed);
-    
-    // When we've scrolled one full width, reset to beginning seamlessly
-    if (wrapper.scrollLeft() >= content.width()) {
-      wrapper.scrollLeft(0);
-    }
-    
-    requestAnimationFrame(scrollLeft);
-  }
-  
-  // Start scrolling
-  scrollLeft();
-});
-
-        </script>
-    </head>
-
-    <body>
-
-        <!-- Preloader Start -->
-        <!-- Preloader Start -->
-<div id="preloader" class="preloader">
-  <div class="animation-preloader">
-    <div class="preloader-img">
-    <!-- Image from React preloader will be placed here -->
-    <img src="assets/img/pre-logo.png" alt="">
-    </div>
-    <div class="spinner"></div>
-
-  </div>
-
-  <div class="loader">
-    <div class="row">
-      <div class="col-3 loader-section section-left">
-        <div class="bg"></div>
-      </div>
-      <div class="col-3 loader-section section-left">
-        <div class="bg"></div>
-      </div>
-      <div class="col-3 loader-section section-right">
-        <div class="bg"></div>
-      </div>
-      <div class="col-3 loader-section section-right">
-        <div class="bg"></div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- Preloader End -->
-
-<!-- Test Commit -->
-
-        <!--<< Mouse Cursor Start >>-->  
-        <div class="mouse-cursor cursor-outer"></div>
-        <div class="mouse-cursor cursor-inner"></div>
-
-        <!-- Offcanvas Area Start -->
-        <div class="fix-area">
-            <div class="offcanvas__info">
-                <div class="offcanvas__wrapper">
-                    <div class="offcanvas__content">
-                        <div class="offcanvas__top mb-5 d-flex justify-content-between align-items-center">
-                            <div class="offcanvas__logo">
-                                <a href="index.html">
-                                    <img src="assets/img/logo-dark.png" alt="logo-img">
-                                </a>
-                            </div>
-                            <div class="offcanvas__close">
-                                <button>
-                                <i class="fas fa-times"></i>
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="mobile-menu fix mb-3"></div>
-                        <div class="offcanvas__contact">
-                            <h4>Contact Info</h4>
-                            <ul>
-                                <li class="d-flex align-items-center">
-                                    <div class="offcanvas__contact-icon">
-                                        <i class="fal fa-map-marker-alt"></i>
-                                    </div>
-                                    <div class="offcanvas__contact-text">
-                                        <a target="_blank" href="#">Main Street, Melbourne, Australia</a>
-                                    </div>
-                                </li>
-                                <li class="d-flex align-items-center">
-                                    <div class="offcanvas__contact-icon mr-15">
-                                        <i class="fal fa-envelope"></i>
-                                    </div>
-                                    <div class="offcanvas__contact-text">
-                                         <a href="mailto:info@example.com"><span>info@example.com</span></a>
-                                    </div>
-                                </li>
-                                <li class="d-flex align-items-center">
-                                    <div class="offcanvas__contact-icon mr-15">
-                                        <i class="fal fa-clock"></i>
-                                    </div>
-                                    <div class="offcanvas__contact-text">
-                                        <a target="_blank" href="#">Mod-friday, 09am -05pm</a>
-                                    </div>
-                                </li>
-                                <li class="d-flex align-items-center">
-                                    <div class="offcanvas__contact-icon mr-15">
-                                        <i class="far fa-phone"></i>
-                                    </div>
-                                    <div class="offcanvas__contact-text">
-                                        <a href="tel:+11002345909">+11002345909</a>
-                                    </div>
-                                </li>
-                            </ul>
-                            <div class="header-button mt-4">
-                                <a href="contact.html" class="theme-btn text-center">
-                                    Contact
-                                </a>
-                            </div>
-                            <div class="social-icon d-flex align-items-center">
-                                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#"><i class="fab fa-twitter"></i></a>
-                                <a href="#"><i class="fab fa-youtube"></i></a>
-                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="offcanvas__overlay"></div>
-
-        <!-- Header Area Start -->
-
-<header>
-    <div id="header-sticky" class="header-1">
-        <div class="container-fluid">
-            <div class="mega-menu-wrapper">
-                <div class="header-main">
-                    <div class="logo">
-                        <a href="index.html" class="header-logo">
-                             <img src="assets/img/logo-dark.png" alt="logo-img">
-                        </a>
-                        <a href="index.html" class="header-logo-2">
-                            <img src="assets/img/logo.png" alt="logo-img">
-                       </a>
-                    </div>
-                    <div class="header-left">
-                        <div class="mean__menu-wrapper">
-                            <div class="main-menu">
-                                <nav id="mobile-menu">
-                                    <ul>
-                                        <li class="has-dropdown active menu-thumb">
-                                            <a href="index.html">
-                                            Home 
-                                            </a>
-                                            
-                                        </li>
-                                        <li class="has-dropdown active d-lg-none">
-                                            <a href="team.html" class="border-none">
-                                               Home
-                                            <i class="fas fa-angle-down"></i>
-                                            </a>
-                                            <ul class="submenu">
-                                                <li><a href="index.html">Home 01</a></li>
-                                                <li><a href="index-2.html">Home 02</a></li>
-                                                <li><a href="index-3.html">Home 03</a></li>
-                                                <li><a href="index-4.html">Home 04</a></li>
-                                            </ul>
-                                        </li>
-                                       
-                                        <li>
-                                            <a href="aboutUs.html">About Us</a>
-                                        </li>
-                                                                    
-                                        
-                                        
-                                        <li>
-                                            <a href="contactUS.html">Contact</a>
-                                        </li>
-
-                                        <li>
-                                            <a  href="service-details.html">Pre-Register Now</a>
-                                        </li>
-                                    </ul>
-                                </nav>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-
-<!-- Modal Overlay -->
-<!-- Modal HTML -->
-
-<div id="customModal" class="modal-overlay">
-    <div class="modal-content">
-      <button class="close-btn">&times;</button>
-      <h2>Register</h2>
-      <form id="registerForm">
-        <div class="form-group">
-          <label for="name">Full Name</label>
-          <input type="text" id="name" name="name" placeholder="Enter your name" required>
-        </div>
-  
-        <div class="form-group">
-          <label for="email">Email Address</label>
-          <input type="email" id="email" name="email" placeholder="Enter your email" required>
-        </div>
-  
-        <div class="form-group">
-          <label for="mobile">Mobile Number <span style="font-weight: normal;">(Optional)</span></label>
-          <input type="tel" id="mobile" name="mobile" placeholder="Enter your mobile number">
-        </div>
-  
-        <div class="form-group ">
-          <label for="device">Select A Country</label>
-          <select name="country" id="country">
-            <option value="">Select a country</option>
-            <option value="AF">Afghanistan</option>
-            <option value="AL">Albania</option>
-            <option value="DZ">Algeria</option>
-            <option value="AD">Andorra</option>
-            <option value="AO">Angola</option>
-            <option value="AG">Antigua and Barbuda</option>
-            <option value="AR">Argentina</option>
-            <option value="AM">Armenia</option>
-            <option value="AU">Australia</option>
-            <option value="AT">Austria</option>
-            <option value="AZ">Azerbaijan</option>
-            <option value="BS">Bahamas</option>
-            <option value="BH">Bahrain</option>
-            <option value="BD">Bangladesh</option>
-            <option value="BB">Barbados</option>
-            <option value="BY">Belarus</option>
-            <option value="BE">Belgium</option>
-            <option value="BZ">Belize</option>
-            <option value="BJ">Benin</option>
-            <option value="BT">Bhutan</option>
-            <option value="BO">Bolivia</option>
-            <option value="BA">Bosnia and Herzegovina</option>
-            <option value="BW">Botswana</option>
-            <option value="BR">Brazil</option>
-            <option value="BN">Brunei Darussalam</option>
-            <option value="BG">Bulgaria</option>
-            <option value="BF">Burkina Faso</option>
-            <option value="BI">Burundi</option>
-            <option value="CV">Cabo Verde</option>
-            <option value="KH">Cambodia</option>
-            <option value="CM">Cameroon</option>
-            <option value="CA">Canada</option>
-            <option value="CF">Central African Republic</option>
-            <option value="TD">Chad</option>
-            <option value="CL">Chile</option>
-            <option value="CN">China</option>
-            <option value="CO">Colombia</option>
-            <option value="KM">Comoros</option>
-            <option value="CG">Congo</option>
-            <option value="CD">Congo, Democratic Republic of the</option>
-            <option value="CR">Costa Rica</option>
-            <option value="HR">Croatia</option>
-            <option value="CU">Cuba</option>
-            <option value="CY">Cyprus</option>
-            <option value="CZ">Czech Republic</option>
-            <option value="DK">Denmark</option>
-            <option value="DJ">Djibouti</option>
-            <option value="DM">Dominica</option>
-            <option value="DO">Dominican Republic</option>
-            <option value="EC">Ecuador</option>
-            <option value="EG">Egypt</option>
-            <option value="SV">El Salvador</option>
-            <option value="GQ">Equatorial Guinea</option>
-            <option value="ER">Eritrea</option>
-            <option value="EE">Estonia</option>
-            <option value="SZ">Eswatini</option>
-            <option value="ET">Ethiopia</option>
-            <option value="FJ">Fiji</option>
-            <option value="FI">Finland</option>
-            <option value="FR">France</option>
-            <option value="GA">Gabon</option>
-            <option value="GM">Gambia</option>
-            <option value="GE">Georgia</option>
-            <option value="DE">Germany</option>
-            <option value="GH">Ghana</option>
-            <option value="GR">Greece</option>
-            <option value="GD">Grenada</option>
-            <option value="GT">Guatemala</option>
-            <option value="GN">Guinea</option>
-            <option value="GW">Guinea-Bissau</option>
-            <option value="GY">Guyana</option>
-            <option value="HT">Haiti</option>
-            <option value="HN">Honduras</option>
-            <option value="HU">Hungary</option>
-            <option value="IS">Iceland</option>
-            <option value="IN">India</option>
-            <option value="ID">Indonesia</option>
-            <option value="IR">Iran</option>
-            <option value="IQ">Iraq</option>
-            <option value="IE">Ireland</option>
-            <option value="IL">Israel</option>
-            <option value="IT">Italy</option>
-            <option value="JM">Jamaica</option>
-            <option value="JP">Japan</option>
-            <option value="JO">Jordan</option>
-            <option value="KZ">Kazakhstan</option>
-            <option value="KE">Kenya</option>
-            <option value="KI">Kiribati</option>
-            <option value="KP">Korea, Democratic People's Republic of</option>
-            <option value="KR">Korea, Republic of</option>
-            <option value="KW">Kuwait</option>
-            <option value="KG">Kyrgyzstan</option>
-            <option value="LA">Lao People's Democratic Republic</option>
-            <option value="LV">Latvia</option>
-            <option value="LB">Lebanon</option>
-            <option value="LS">Lesotho</option>
-            <option value="LR">Liberia</option>
-            <option value="LY">Libya</option>
-            <option value="LI">Liechtenstein</option>
-            <option value="LT">Lithuania</option>
-            <option value="LU">Luxembourg</option>
-            <option value="MG">Madagascar</option>
-            <option value="MW">Malawi</option>
-            <option value="MY">Malaysia</option>
-            <option value="MV">Maldives</option>
-            <option value="ML">Mali</option>
-            <option value="MT">Malta</option>
-            <option value="MH">Marshall Islands</option>
-            <option value="MR">Mauritania</option>
-            <option value="MU">Mauritius</option>
-            <option value="MX">Mexico</option>
-            <option value="FM">Micronesia (Federated States of)</option>
-            <option value="MD">Moldova, Republic of</option>
-            <option value="MC">Monaco</option>
-            <option value="MN">Mongolia</option>
-            <option value="ME">Montenegro</option>
-            <option value="MA">Morocco</option>
-            <option value="MZ">Mozambique</option>
-            <option value="MM">Myanmar</option>
-            <option value="NA">Namibia</option>
-            <option value="NR">Nauru</option>
-            <option value="NP">Nepal</option>
-            <option value="NL">Netherlands</option>
-            <option value="NZ">New Zealand</option>
-            <option value="NI">Nicaragua</option>
-            <option value="NE">Niger</option>
-            <option value="NG">Nigeria</option>
-            <option value="MK">North Macedonia</option>
-            <option value="NO">Norway</option>
-            <option value="OM">Oman</option>
-            <option value="PK">Pakistan</option>
-            <option value="PW">Palau</option>
-            <option value="PS">Palestine, State of</option>
-            <option value="PA">Panama</option>
-            <option value="PG">Papua New Guinea</option>
-            <option value="PY">Paraguay</option>
-            <option value="PE">Peru</option>
-            <option value="PH">Philippines</option>
-            <option value="PL">Poland</option>
-            <option value="PT">Portugal</option>
-            <option value="QA">Qatar</option>
-            <option value="RO">Romania</option>
-            <option value="RU">Russian Federation</option>
-            <option value="RW">Rwanda</option>
-            <option value="KN">Saint Kitts and Nevis</option>
-            <option value="LC">Saint Lucia</option>
-            <option value="VC">Saint Vincent and the Grenadines</option>
-            <option value="WS">Samoa</option>
-            <option value="SM">San Marino</option>
-            <option value="ST">Sao Tome and Principe</option>
-            <option value="SA">Saudi Arabia</option>
-            <option value="SN">Senegal</option>
-            <option value="RS">Serbia</option>
-            <option value="SC">Seychelles</option>
-            <option value="SL">Sierra Leone</option>
-            <option value="SG">Singapore</option>
-            <option value="SK">Slovakia</option>
-            <option value="SI">Slovenia</option>
-            <option value="SB">Solomon Islands</option>
-            <option value="SO">Somalia</option>
-            <option value="ZA">South Africa</option>
-            <option value="SS">South Sudan</option>
-            <option value="ES">Spain</option>
-            <option value="LK">Sri Lanka</option>
-            <option value="SD">Sudan</option>
-            <option value="SR">Suriname</option>
-            <option value="SE">Sweden</option>
-            <option value="CH">Switzerland</option>
-            <option value="SY">Syrian Arab Republic</option>
-            <option value="TW">Taiwan</option>
-            <option value="TJ">Tajikistan</option>
-            <option value="TZ">Tanzania, United Republic of</option>
-            <option value="TH">Thailand</option>
-            <option value="TL">Timor-Leste</option>
-            <option value="TG">Togo</option>
-            <option value="TO">Tonga</option>
-            <option value="TT">Trinidad and Tobago</option>
-            <option value="TN">Tunisia</option>
-            <option value="TR">Türkiye</option>
-            <option value="TM">Turkmenistan</option>
-            <option value="TV">Tuvalu</option>
-            <option value="UG">Uganda</option>
-            <option value="UA">Ukraine</option>
-            <option value="AE">United Arab Emirates</option>
-            <option value="GB">United Kingdom</option>
-            <option value="US">United States</option>
-            <option value="UY">Uruguay</option>
-            <option value="UZ">Uzbekistan</option>
-            <option value="VU">Vanuatu</option>
-            <option value="VE">Venezuela (Bolivarian Republic of)</option>
-            <option value="VN">Viet Nam</option>
-            <option value="YE">Yemen</option>
-            <option value="ZM">Zambia</option>
-            <option value="ZW">Zimbabwe</option>
-          </select>
-        </div>
-  
-        <div class="form-group">
-         <!-- Multiselect (plain HTML) -->
-<div class="form-group">
-    <label for="genres">Select Genres (you can choose multiple)</label>
-    <select id="genres" name="genres[]" multiple size="8" style="width:100%;">
-      <option value="action">Action</option>
-      <option value="anime">Anime</option>
-      <option value="award-winning">Award-Winning</option>
-      <option value="bollywood">Bollywood</option>
-      <option value="classics">Classics</option>
-      <option value="comedies">Comedies</option>
-      <option value="crime">Crime</option>
-      <option value="documentaries">Documentaries</option>
-      <option value="dramas">Dramas</option>
-      <option value="fantasy">Fantasy</option>
-      <option value="hollywood">Hollywood</option>
-      <option value="horror">Horror</option>
-      <option value="independent">Independent</option>
-      <option value="kids-family">Kids &amp; Family</option>
-      <option value="music-musicals">Music &amp; Musicals</option>
-      <option value="romance">Romance</option>
-      <option value="sci-fi">Sci-Fi</option>
-      <option value="shorts">Shorts</option>
-      <option value="sports">Sports</option>
-      <option value="stand-up-comedy">Stand-Up Comedy</option>
-      <option value="thriller">Thriller</option>
-    </select>
-    <!-- Tip: Ctrl/Cmd + Click to select multiple (or Shift for ranges) -->
-  </div>
-  
-        </div>
-  
-       <div class="form-group">
-  <label>
-    <input type="checkbox" name="updates" value="yes">
-    Keep me informed with exclusive updates and offers.
-  </label>
-</div>
-  
-        <button type="submit" class="submit-btn">Register</button>
-      </form>
-    </div>
-  </div>
-  
-
-
-<!-- <script>
-const passwordInput = document.getElementById('password');
-const requirements = {
-    length: document.getElementById('req-length'),
-    uppercase: document.getElementById('req-uppercase'),
-    lowercase: document.getElementById('req-lowercase'),
-    number: document.getElementById('req-number'),
-    special: document.getElementById('req-special')
-};
-
-passwordInput.addEventListener('input', function() {
-    const value = passwordInput.value;
-    updateRequirement(requirements.length, value.length >= 8);
-    updateRequirement(requirements.uppercase, /[A-Z]/.test(value));
-    updateRequirement(requirements.lowercase, /[a-z]/.test(value));
-    updateRequirement(requirements.number, /[0-9]/.test(value));
-    updateRequirement(requirements.special, /[^A-Za-z0-9]/.test(value));
-});
-
-function updateRequirement(element, isValid) {
-    element.classList.toggle('valid', isValid);
-    element.classList.toggle('invalid', !isValid);
-}
-
-document.getElementById('registerForm').addEventListener('submit', function(e) {
-    const value = passwordInput.value;
-    if (!(value.length >= 8 &&
-        /[A-Z]/.test(value) &&
-        /[a-z]/.test(value) &&
-        /[0-9]/.test(value) &&
-        /[^A-Za-z0-9]/.test(value))) {
-        e.preventDefault();
-    }
-});
-</script> -->
-
-        <!-- Search Area Start -->
-        <div class="search-wrap">
-            <div class="search-inner">
-                <i class="fas fa-times search-close" id="search-close"></i>
-                <div class="search-cell">
-                    <form method="get">
-                        <div class="search-field-holder">
-                            <input type="search" class="main-search-input" placeholder="Search...">
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-        <!-- Hero Section Start -->
- <section class="hero-section hero-1">
-    <div class="array-button">
-        <button 
-            class="array-prev" 
-            style="background: linear-gradient(135deg, #000000, #9d0dad);"
-            onmouseover="this.style.background='linear-gradient(135deg, #9d0dad, #000000)'" 
-            onmouseout="this.style.background='linear-gradient(135deg, #000000, #9d0dad)'">
-            <i class="fal fa-arrow-right"></i>
-        </button>
-
-        <button 
-            class="array-next" 
-            style="background: linear-gradient(135deg, #000000, #9d0dad);"
-            onmouseover="this.style.background='linear-gradient(135deg, #9d0dad, #000000)'" 
-            onmouseout="this.style.background='linear-gradient(135deg, #000000, #9d0dad)'">
-            <i class="fal fa-arrow-left"></i>
-        </button>
-    </div>
-
-
-            <div class="swiper hero-slider" height="200px">
-                <div class="swiper-wrapper" height="200px">
-                    <div class="swiper-slide" height="200px">
-                        
-                        <div class="hero-image bg-cover" style="background-image: url('assets/img/images/image1.jpg');" height="200px"></div>
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-xl-12">
-                                   <div class="hero-content text-center">
-                                        <h3 class="text-white" data-animation="fadeInUp" data-delay="1.3s">
-                                            Cup Entertainment is a global OTT platform bringing premium webseries,<br> dramas, films, and original content to audiences worldwide.<br> Launching December 2025 — be the first to experience it!
-                                        </h3>
-                                        
-                                   </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide" height="200px">
-                        
-                        <div class="hero-image bg-cover" style="background-image: url('assets/img/images/image2.jpg');" height="200px"></div>
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-xl-12">
-                                   <div class="hero-content text-center">
-                                        <h3 class="text-white" data-animation="fadeInUp" data-delay="1.3s">
-                                            Cup Entertainment is a global OTT platform bringing premium webseries,<br> dramas, films, and original content to audiences worldwide.<br> Launching December 2025 — be the first to experience it!
-                                        </h3>
-                                    
-                                   </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide" height="200px">
-                       
-                        <div class="hero-image bg-cover" style="background-image: url('assets/img/images/image3.jpg');" height="200px"></div>
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-xl-12">
-                                   <div class="hero-content text-center">
-                                        <h3 class="text-white" data-animation="fadeInUp" data-delay="1.3s">
-                                            Cup Entertainment is a global OTT platform bringing premium webseries,<br> dramas, films, and original content to audiences worldwide.<br> Launching December 2025 — be the first to experience it!
-                                        </h3>
-                                        
-                                   </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-<!-- Countdown Component -->
-
-
-
-<!-- About Section Start -->
-<section class="about-section section-padding pt-0 fix">
-    <div class="container">
-        <div class="about-wrapper">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="about-image wow fadeInUp" data-wow-delay=".3s">
-                        <img src="assets/img/images/image8.png" alt="about-img">
-                        <div class="video-box wow fadeInUp" data-wow-delay=".5s">
-                            <!-- <img src="assets/img/images/image5.jpg" alt="about-img" style="width: 518px;height: 212px;"> -->
-                            <!-- <a href="https://www.youtube.com/watch?v=Cn4G2lZ_g2I" class="video-btn ripple video-popup">
-                                <i class="flaticon-play-button"></i>
-                            </a> -->
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 mt-5 mt-lg-0">
-                    <div class="about-content">
-                      <div class="section-title mb-4">
-                        <h2 class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
-                          <span class="highlight-text">We Are CUP Entertainment - A Leading OTT Platform</span>
-                          
-                        </h2>
-                      </div>
-                  
-                      <p data-wow-delay=".5s" class="mt-3 wow fadeInUp" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
-                        Providing high-quality, on-demand streaming services. We bring the best content straight to your screen — anytime, anywhere.
-                      </p>
-                  
-                      <ul class="feature-list mt-4 wow fadeInUp" data-wow-delay=".6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;">
-                        <li><i class="fas fa-check-circle"></i> Wide variety of content</li>
-                        <li><i class="fas fa-check-circle"></i> Seamless streaming experience</li>
-                        <li><i class="fas fa-check-circle"></i> Custom user interface</li>
-                      </ul>
-                  
-                    </div>
-                  </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<section class="countdown-section">
-   
-    <div class="container" style="max-width: 100% !important;">
-      <div class="countdown-wrapper">
-        <div class="cta-left text-center pt-5">
-          
-          <div class="countdown mt-4">
-              <span class="highlight-date col-md-12" style="margin-bottom: 5% !important; font-weight: bold;">LAUNCHING ON 25 DECEMBER 2025 </span>
-              
-            <div>
-              <span id="days" class="time-box">00</span>
-              <span class="label">Days</span>
-            </div>
-            <div>
-              <span id="hours" class="time-box">00</span>
-              <span class="label">Hours</span>
-            </div>
-            <div>
-              <span id="minutes" class="time-box">00</span>
-              <span class="label">Min</span>
-            </div>
-            <div>
-              <span id="seconds" class="time-box">00</span>
-              <span class="label">Sec</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-<!-- Service Section Start -->
-<section class="service-section section-padding pt-0" id="img-slider">
-    <div class="container" style="max-width:100%;">
-        <div class="scroll-wrapper" id="scrollWrapper">
-            <div class="row g-0 flex-nowrap">
-                <div class="col-xl-2 col-lg-3 col-md-4wow fadeInUp" data-wow-delay=".3s">
-                    <div class="servie-card-image-items" style="background-image: url('assets/img/images/Ready-Steady-go-Poster-midsize.png');"></div>
-                </div>
-                <div class="col-xl-2 col-lg-3 col-md-4wow fadeInUp" data-wow-delay=".3s">
-                    <div class="servie-card-image-items" style="background-image: url('assets/img/images/Nadaan-Muhabbat-midsize.png');"></div>
-                </div>
-                <div class="col-xl-2 col-lg-3 col-md-4wow fadeInUp" data-wow-delay=".3s">
-                    <div class="servie-card-image-items" style="background-image: url('assets/img/images/Ladoo-shaadi-ka-midsize.png');"></div>
-                </div>
-                <div class="col-xl-2 col-lg-3 col-md-4wow fadeInUp" data-wow-delay=".3s">
-                    <div class="servie-card-image-items" style="background-image: url('assets/img/images/hashmat-and-family-midsize.png');"></div>
-                </div>
-                <div class="col-xl-2 col-lg-3 col-md-4wow fadeInUp" data-wow-delay=".3s">
-                    <div class="servie-card-image-items" style="background-image: url('assets/img/images/Dil-e-umeed-midsoze.png');"></div>
-                </div>
-                <div class="col-xl-2 col-lg-3 col-md-4wow fadeInUp" data-wow-delay=".3s">
-                    <div class="servie-card-image-items" style="background-image: url('assets/img/images/SABA-Eazy-Load-Wali-midsize.png');"></div>
-                </div>
-                <div class="col-xl-2 col-lg-3 col-md-4wow fadeInUp" data-wow-delay=".3s">
-                    <div class="servie-card-image-items" style="background-image: url('assets/img/images/Luka-Chuppi-Poster-midsize.png');"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-  
-
-
-
-<!-- Team Section Start -->
-<section class="team-section fix section-padding pt-0">
-    <div class="container">
-        <div class="section-title text-center">
-        </br>
-            <span class="wow fadeInUp" style="margin-top: 2%;">4K streaming in different languages</span>
-
-            <!-- Minimal styled drop‑in language slider: copy into your page -->
-<div id="lang-slider" data-speed="20">
-  <span class="item">English</span>
-  <span class="item">Mandarin Chinese</span>
-  <span class="item">Hindi</span>
-  <span class="item">Spanish</span>
-  <span class="item">French</span>
-  <span class="item">Arabic</span>
-  <span class="item">Bengali</span>
-  <span class="item">Punjabi</span>
-  <span class="item">Korean</span>
-  <span class="item">Malay</span>
-  <span class="item">Bengali</span>
-  <span class="item">Portuguese</span>
-  <span class="item">Russian</span>
-  <span class="item">Urdu</span>
-  <span class="item">Indonesian</span>
-  <span class="item">German</span>
-  <span class="item">Japanese</span>
-  <span class="item">Swahili</span>
-  <span class="item">Marathi</span>
-  <span class="item">Telugu</span>
-  <span class="item">Turkish</span>
-  <span class="item">Tamil</span>
-  <span class="item">Vietnamese</span>
-  <span class="item">Italian</span>
-</div>
-
-<style>
- 
- #lang-slider {
-    --gap: 16px;
-    --speed: 21s;
-    position: relative;
-    overflow: hidden;
-    display: block;
-    border-radius: 16px;
-    padding: 12px 0;
-    background-color: #1a1919;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35), inset 0 0 0 1px rgba(255, 255, 255, 0.06);
-    width: 100%; /* Ensure the slider takes full container width */
-}
-
-#lang-slider::before,
-#lang-slider::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 80px;
-    pointer-events: none;
-    z-index: 2;
-}
-
-#lang-slider::before {
-    left: 0;
-    background: linear-gradient(90deg, #1a1919 0%, transparent 100%);
-}
-
-#lang-slider::after {
-    right: 0;
-    background: linear-gradient(270deg, #1a1919 0%, transparent 100%);
-}
-
-#lang-slider .track {
-    display: inline-flex;
-    gap: var(--gap);
-    white-space: nowrap;
-    will-change: transform;
-    animation: slide-rtl var(--speed) linear infinite;
-}
-
-#lang-slider .item {
-    padding: 10px 16px;
-    border-radius: 12px;
-    color: #e2e8f0 !important;
-    text-decoration: none !important;
-    font: 600 14px/1.1 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-}
-
-@keyframes slide-rtl {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(calc(-100% / 2)); /* Adjusted to scroll across entire length */
-    }
-}
-
-#lang-slider:hover .track {
-    animation-play-state: paused;
-}
-
-@media (prefers-reduced-motion: reduce) {
     #lang-slider .track {
-        animation: none;
+        display: inline-flex;
+        gap: var(--gap);
+        white-space: nowrap;
+        will-change: transform;
+        animation: slide-rtl var(--speed) linear infinite;
     }
-}
 
-
-</style>
-
-<script>
-    document.querySelectorAll('a').forEach(link => {
-    const href = link.getAttribute('href');
-
-    // Check if the link contains "privacy.html" in its href
-    if (href && href.includes("privacy.html")) {
-        // Add an event listener for the click event
-        link.addEventListener('click', function(e) {
-            e.preventDefault(); // Prevent any default behavior
-            
-            // Redirect to the privacy policy page
-            window.location.href = href; // Redirect to the privacy.html
-        });
+    #lang-slider .item {
+        padding: 10px 16px;
+        border-radius: 12px;
+        color: #e2e8f0 !important;
+        text-decoration: none !important;
+        font: 600 14px/1.1 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     }
-});
-    (function () {
-    const el = document.getElementById('lang-slider');
-    if (!el) return;
 
-    const speedAttr = parseFloat(el.getAttribute('data-speed'));
-    if (!isNaN(speedAttr)) el.style.setProperty('--speed', speedAttr + 's');
+    @keyframes slide-rtl {
+        from {
+            transform: translateX(0);
+        }
+        to {
+            transform: translateX(calc(-100% / 2)); /* Adjusted to scroll across entire length */
+        }
+    }
 
-    const original = Array.from(el.querySelectorAll('.item')).map(n => n.outerHTML).join('');
-    el.innerHTML = `<div class="track">${original}${original}</div>`;
+    #lang-slider:hover .track {
+        animation-play-state: paused;
+    }
 
-    const track = el.firstElementChild;
-
-    const setWidth = () => {
-        // Update width to be the full length of the track
-        const trackWidth = track.scrollWidth;
-        el.style.setProperty('--w', trackWidth + 'px');
-    };
-
-    requestAnimationFrame(setWidth);
-    window.addEventListener('resize', () => { requestAnimationFrame(setWidth); });
-})();
-
-</script>
+    @media (prefers-reduced-motion: reduce) {
+        #lang-slider .track {
+            animation: none;
+        }
+    }
 
 
-        </div>
-      
-         <a class="text-area text-center mt-5 wow fadeInUp mb-5 d-block"
-   data-wow-delay=".4s" href="" style="color: aliceblue; text-decoration: none;max-width:fit-content">Pre-Register Now</a>
-    </div>
-</section>
+    </style>
 
-<!-- Banner Component -->
-<!-- Banner Component -->
-<!-- <section class="banner">
-  <div class="banner-content">
-    <h1 class="tagline">Experience 0</h1>
-    <p class="countdown">Coming October 13</p>
-    
-   
-    <div class="video-wrapper">
-      <img src="assets/img/images/image4.jpg" autoplay muted loop></img>
-    </div>
-
-    <p class="video-info">Name — 4K on Android TV & VR</p>
-  </div>
-</section> -->
-
-
-<!-- Footer Section Start -->
-<!-- Footer Section Start -->
-<footer class="footer-section fix footer-bg">
-    <div class="container">
-        <div class="footer-widgets-wrapper">
-            <div class="row">
-                <!-- Brand & Contact -->
-                <div class="col-xl-5 col-lg-4 col-md-4wow fadeInUp" data-wow-delay=".3s">
-                    <div class="single-footer-widget">
-                        <div class="widget-head">
-                            <a href="index.html">
-                                <img src="assets/img/logo-dark.png" alt="Cup Entertainment">
-                            </a>
-                        </div>
-                        <div class="footer-content">
-                            <h6><a href="tel:+85294659934">+852 9465 9934</a></h6>
-                            <h6><a href="tel:+97155290862">+971 5529 0862</a></h6>
-                            <h6><a href="support@cupentertainment.com" style="text-transform:lowercase">support@cupentertainment.com</a></h6>
-                            <h6><a href="tel:+85294659934">RM 1203, 12/F, TOWER 3 CHINA HONG KONG CITY, </br>  33 CANTON RD TSIM SHA TSUI HONG KONG</a></h6>
-                                                   </div>
-                    </div>
-                </div>
-
-                <!-- Company Links -->
-                <div class="col-xl-2 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".5s">
-                    <div class="single-footer-widget">
-                        <div class="widget-head">
-                            <h3>Company</h3>
-                        </div>
-                        <ul class="list-area">
-                            <li><a href="aboutUs.html">About Us</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Support Links -->
-                <div class="col-xl-2 ps-lg-4 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".7s">
-                    <div class="single-footer-widget">
-                        <div class="widget-head">
-                            <h3>Support</h3>
-                        </div>
-                        <ul class="list-area">
-                            
-                            <li><a href="contactUS.html">Contact</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Legal Links -->
-                <div class="col-xl-2 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".9s">
-                    <div class="single-footer-widget">
-                        <div class="widget-head">
-                            <h3>Legal</h3>
-                        </div>
-                        <div class="footer-content">
-                            <ul class="list-area">
-                                <li><a  href="privacy.html">Privacy Policy</a></li>
-                            </ul>
-                           
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer Bottom -->
-    <div class="footer-bottom">
-        <div class="container">
-            <div class="footer-bottom-wrapper">
-                <p style="margin-left: 30%;">
-                    Copyright © 2025 Cup Entertainment Global Limited. All rights reserved.
-                </p>
-            </div>
-        </div>
-    </div>
-</footer>
-
-        <!-- Back To Top Start -->
-        <div class="scroll-up">
-            <svg class="scroll-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
-                <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
-            </svg>
-        </div>
-
-        <!--<< All JS Plugins >>-->
-        <script src="assets/js/jquery-3.7.1.min.js"></script>
-        <!--<< Viewport Js >>-->
-        <script src="assets/js/viewport.jquery.js"></script>
-        <!--<< Bootstrap Js >>-->
-        <script src="assets/js/bootstrap.bundle.min.js"></script>
-        <!--<< Nice Select Js >>-->
-        <script src="assets/js/jquery.nice-select.min.js"></script>
-        <!--<< Waypoints Js >>-->
-        <script src="assets/js/jquery.waypoints.js"></script>
-        <!--<< Counterup Js >>-->
-        <script src="assets/js/jquery.counterup.min.js"></script>
-        <!--<< Swiper Slider Js >>-->
-        <script src="assets/js/swiper-bundle.min.js"></script>
-        <!--<< MeanMenu Js >>-->
-        <script src="assets/js/jquery.meanmenu.min.js"></script>
-        <!--<< Magnific Popup Js >>-->
-        <script src="assets/js/jquery.magnific-popup.min.js"></script>
-        <!--<< Wow Animation Js >>-->
-        <script src="assets/js/wow.min.js"></script>
-        <!--<< Circle Progress Js >>-->
-        <script src="assets/js/circle-progress.js"></script>
-        <!--<< Main.js >>-->
-        <script src="assets/js/main.js"></script>
-<script>
-    
-  document.querySelectorAll('a').forEach(link => {
-    const href = link.getAttribute('href');
-    
-    // Skip the links that should navigate normally (like Privacy Policy, Contact, etc.)
-    if (href === "privacy.html" || href === "about.html" || href === "contactUS.html") {
+    <script>
         
-        return; // Allow normal navigation for Privacy Policy and other pages
-    }
+        (function () {
+        const el = document.getElementById('lang-slider');
+        if (!el) return;
 
-    // If link should trigger modal, prevent default action and show modal
-    link.addEventListener('click', function(e) {
-        
-        e.preventDefault(); // Prevent navigation
+        const speedAttr = parseFloat(el.getAttribute('data-speed'));
+        if (!isNaN(speedAttr)) el.style.setProperty('--speed', speedAttr + 's');
 
-        // Show modal
-        document.querySelector('.modal-overlay').classList.add('active');
+        const original = Array.from(el.querySelectorAll('.item')).map(n => n.outerHTML).join('');
+        el.innerHTML = `<div class="track">${original}${original}</div>`;
 
-        // Hide modal after 2 seconds
-        setTimeout(() => {
-            document.querySelector('.modal-overlay').classList.remove('active');
-        }, 2000);
-    });
-});
+        const track = el.firstElementChild;
 
-</script>
+        const setWidth = () => {
+            // Update width to be the full length of the track
+            const trackWidth = track.scrollWidth;
+            el.style.setProperty('--w', trackWidth + 'px');
+        };
 
-<script>
-    const modal = document.getElementById('customModal');
-    const closeBtn = document.querySelector('.close-btn');
+        requestAnimationFrame(setWidth);
+        window.addEventListener('resize', () => { requestAnimationFrame(setWidth); });
+    })();
 
-    // Show modal (for demo) except About and Contact
-    document.querySelectorAll('a').forEach(link => {
-        const href = link.getAttribute('href');
-
-        if (href && (href.includes('about') || href.includes('contact'))) {
-            return; // skip About and Contact
-        }
-
-        link.addEventListener('click', e => {
-            e.preventDefault();
-            modal.style.display = 'flex';
-        });
-    });
-
-    // Close when clicking the X
-    closeBtn.addEventListener('click', () => {
-        modal.style.display = 'none';
-    });
-
-    // Close when clicking outside the modal content
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            modal.style.display = 'none';
-        }
-    });
-
-    // Prevent modal from closing when clicking inside content
-    document.querySelector('.modal-content').addEventListener('click', e => {
-        e.stopPropagation();
-    });
-
-    const countdownDate = new Date("December 25, 2025 00:00:00").getTime();
-
-    function updateCountdown() {
-        const now = new Date().getTime();
-        const distance = countdownDate - now;
-
-        if (distance < 0) {
-            document.querySelector(".countdown").innerHTML = "<span>00</span> Days";
-            return;
-        }
-
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        document.getElementById("days").textContent = days.toString().padStart(2, '0');
-        document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
-        document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
-        document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
-    }
-
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
-
-    $(document).ready(function() {
-            var scrollAmount = 0;
-            var scrollDistance = 300; // Adjust this value based on the width of your divs
-            var scrollSpeed = 2000; // Speed of scroll in milliseconds
-
-            // Function to automatically scroll
-            function autoScroll() {
-                var wrapper = $('#scrollWrapper');
-                var scrollWidth = wrapper[0].scrollWidth; // Total width of the scrollable content
-                var containerWidth = wrapper.width(); // Visible width of the container
-
-                if (scrollAmount >= scrollWidth - containerWidth) {
-                    scrollAmount = 0; // Reset when reaching the end
-                } else {
-                    scrollAmount += scrollDistance; // Move scroll by scrollDistance
-                }
-
-                wrapper.animate({
-                    scrollLeft: scrollAmount
-                }, scrollSpeed);
-            }
-
-            // Auto-scroll every 2 seconds (adjust as needed)
-            setInterval(autoScroll, 3000); // Change the interval if needed
-        });
     </script>
-</script>
 
 
-    </body>
-</html>
+            </div>
+        
+            <a class="text-area text-center mt-5 wow fadeInUp mb-5 d-block"
+    data-wow-delay=".4s" href="" style="color: aliceblue; text-decoration: none;max-width:fit-content">Pre-Register Now</a>
+        </div>
+    </section>
+
+    <!-- Banner Component -->
+    <!-- Banner Component -->
+    <!-- <section class="banner">
+    <div class="banner-content">
+        <h1 class="tagline">Experience 0</h1>
+        <p class="countdown">Coming October 13</p>
+        
+    
+        <div class="video-wrapper">
+        <img src="assets/img/images/image4.jpg" autoplay muted loop></img>
+        </div>
+
+        <p class="video-info">Name — 4K on Android TV & VR</p>
+    </div>
+    </section> -->
+
+
+    <!-- Footer Section Start -->
+    <!-- Footer Section Start -->
+    <footer class="footer-section fix footer-bg">
+        <div class="container">
+            <div class="footer-widgets-wrapper">
+                <div class="row">
+                    <!-- Brand & Contact -->
+                    <div class="col-xl-5 col-lg-4 col-md-4wow fadeInUp" data-wow-delay=".3s">
+                        <div class="single-footer-widget">
+                            <div class="widget-head">
+                                <a href="index.html">
+                                    <img src="assets/img/logo-dark.png" alt="Cup Entertainment">
+                                </a>
+                            </div>
+                            <div class="footer-content">
+                                <h6><a href="tel:+85294659934">+852 9465 9934</a></h6>
+                                <h6><a href="tel:+97155290862">+971 5529 0862</a></h6>
+                                <h6><a href="support@cupentertainment.com" style="text-transform:lowercase">support@cupentertainment.com</a></h6>
+                                <h6><a href="tel:+85294659934">RM 1203, 12/F, TOWER 3 CHINA HONG KONG CITY, </br>  33 CANTON RD TSIM SHA TSUI HONG KONG</a></h6>
+                                                    </div>
+                        </div>
+                    </div>
+
+                    <!-- Company Links -->
+                    <div class="col-xl-2 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".5s">
+                        <div class="single-footer-widget">
+                            <div class="widget-head">
+                                <h3>Company</h3>
+                            </div>
+                            <ul class="list-area">
+                                <li><a href="aboutUs.html">About Us</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Support Links -->
+                    <div class="col-xl-2 ps-lg-4 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".7s">
+                        <div class="single-footer-widget">
+                            <div class="widget-head">
+                                <h3>Support</h3>
+                            </div>
+                            <ul class="list-area">
+                                
+                                <li><a href="contactUS.html">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Legal Links -->
+                    <div class="col-xl-2 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".9s">
+                        <div class="single-footer-widget">
+                            <div class="widget-head">
+                                <h3>Legal</h3>
+                            </div>
+                            <div class="footer-content">
+                                <ul class="list-area">
+                                    <li><a  href="privacy.html">Privacy Policy</a></li>
+                                </ul>
+                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-wrapper">
+                    <p style="margin-left: 30%;">
+                        Copyright © 2025 Cup Entertainment Global Limited. All rights reserved.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+            <!-- Back To Top Start -->
+            <div class="scroll-up">
+                <svg class="scroll-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+                    <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+                </svg>
+            </div>
+
+            <!--<< All JS Plugins >>-->
+            <script src="assets/js/jquery-3.7.1.min.js"></script>
+            <!--<< Viewport Js >>-->
+            <script src="assets/js/viewport.jquery.js"></script>
+            <!--<< Bootstrap Js >>-->
+            <script src="assets/js/bootstrap.bundle.min.js"></script>
+            <!--<< Nice Select Js >>-->
+            <script src="assets/js/jquery.nice-select.min.js"></script>
+            <!--<< Waypoints Js >>-->
+            <script src="assets/js/jquery.waypoints.js"></script>
+            <!--<< Counterup Js >>-->
+            <script src="assets/js/jquery.counterup.min.js"></script>
+            <!--<< Swiper Slider Js >>-->
+            <script src="assets/js/swiper-bundle.min.js"></script>
+            <!--<< MeanMenu Js >>-->
+            <script src="assets/js/jquery.meanmenu.min.js"></script>
+            <!--<< Magnific Popup Js >>-->
+            <script src="assets/js/jquery.magnific-popup.min.js"></script>
+            <!--<< Wow Animation Js >>-->
+            <script src="assets/js/wow.min.js"></script>
+            <!--<< Circle Progress Js >>-->
+            <script src="assets/js/circle-progress.js"></script>
+            <!--<< Main.js >>-->
+            <script src="assets/js/main.js"></script>
+   
+
+    
+
+
+        </body>
+    </html>
