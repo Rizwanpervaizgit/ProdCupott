@@ -301,11 +301,11 @@ const timer = setInterval(function () {
             
                 const desktopHeader = `
                   <!-- Your full-screen header code here -->
-                  <header>
+                  <header >
                     <div id="header-sticky" class="header-1">
-                        <div class="container-fluid">
-                            <div class="mega-menu-wrapper">
-                                <div class="header-main">
+                        <div class="container-fluid" >
+                            <div class="mega-menu-wrapper"style="padding: 0; margin: 0; height:100px">
+                                <div class="header-main" style="padding: 0; margin: 0; height:100px">
                                     <div class="logo">
                                         <a href="index.html" class="header-logo">
                                             <img src="assets/img/logo-dark.png" alt="logo-img">
@@ -600,26 +600,26 @@ function loadSlider() {
     <section class="service-section section-padding pt-0" id="img-slider">
       <div class="container" style="max-width:100%;">
         <div class="scroll-wrapper" id="scrollWrapper">
-          <div class="row g-0 flex-nowrap">
-            <div class="col-xl-2 col-lg-3 col-md-12 wow fadeInUp" data-wow-delay=".3s">
+          <div class="row g-0 flex-nowrap slider-track2">
+            <div class="col-xl-1 col-lg-1 col-md-1 wow fadeInUp" data-wow-delay=".3s">
               <div class="servie-card-image-items" style="background-image: url('assets/img/images/Ready-Steady-go-Poster-midsize.png');"></div>
             </div>
-            <div class="col-xl-2 col-lg-3 col-md-4 wow fadeInUp" data-wow-delay=".3s">
+            <div class="col-xl-1 col-lg-1 col-md-1 wow fadeInUp" data-wow-delay=".3s">
               <div class="servie-card-image-items" style="background-image: url('assets/img/images/Nadaan-Muhabbat-midsize.png');"></div>
             </div>
-            <div class="col-xl-2 col-lg-3 col-md-4 wow fadeInUp" data-wow-delay=".3s">
+            <div class="col-xl-1 col-lg-1 col-md-1 wow fadeInUp" data-wow-delay=".3s">
               <div class="servie-card-image-items" style="background-image: url('assets/img/images/Ladoo-shaadi-ka-midsize.png');"></div>
             </div>
-            <div class="col-xl-2 col-lg-3 col-md-4 wow fadeInUp" data-wow-delay=".3s">
+            <div class="col-xl-1 col-lg-1 col-md-1 wow fadeInUp" data-wow-delay=".3s">
               <div class="servie-card-image-items" style="background-image: url('assets/img/images/hashmat-and-family-midsize.png');"></div>
             </div>
-            <div class="col-xl-2 col-lg-3 col-md-4 wow fadeInUp" data-wow-delay=".3s">
+            <div class="col-xl-1 col-lg-1 col-md-1 wow fadeInUp" data-wow-delay=".3s">
               <div class="servie-card-image-items" style="background-image: url('assets/img/images/Dil-e-umeed-midsoze.png');"></div>
             </div>
-            <div class="col-xl-2 col-lg-3 col-md-4 wow fadeInUp" data-wow-delay=".3s">
+            <div class="col-xl-1 col-lg-1 col-md-1 wow fadeInUp" data-wow-delay=".3s">
               <div class="servie-card-image-items" style="background-image: url('assets/img/images/SABA-Eazy-Load-Wali-midsize.png');"></div>
             </div>
-            <div class="col-xl-2 col-lg-3 col-md-4 wow fadeInUp" data-wow-delay=".3s">
+            <div class="col-xl-1 col-lg-1 col-md-1 wow fadeInUp" data-wow-delay=".3s">
               <div class="servie-card-image-items" style="background-image: url('assets/img/images/Luka-Chuppi-Poster-midsize.png');"></div>
             </div>
           </div>
@@ -656,7 +656,7 @@ function initMobileSlider() {
     .mobile-slider .slider-track {
       display: flex;
       width: max-content;
-      animation: scrollMobile 25s linear infinite;
+      animation: scrollMobile 65s linear infinite;
     }
     .mobile-slider .slider-item {
       flex: 0 0 auto;
@@ -688,7 +688,10 @@ function initDesktopSlider() {
     }
     .desktop-slider .servie-card-image-items:hover {
       transform: scale(1.03);
+      
     }
+
+
   `;
   document.head.appendChild(style);
 
@@ -713,6 +716,26 @@ function initDesktopSlider() {
 
 window.addEventListener('load', loadSlider);
 window.addEventListener('resize', loadSlider);
+
+function initDesktopSlider() {
+  const wrapper = document.querySelector("#scrollWrapper");
+  const track = wrapper.querySelector(".slider-track2");
+
+  // Duplicate slides for seamless effect
+  track.innerHTML += track.innerHTML;
+
+  let scrollSpeed = 0.5; // adjust for speed
+  function continuousScroll() {
+    wrapper.scrollLeft += scrollSpeed;
+    if (wrapper.scrollLeft >= track.scrollWidth / 2) {
+      wrapper.scrollLeft = 0; // reset when halfway
+    }
+    requestAnimationFrame(continuousScroll);
+  }
+  continuousScroll();
+}
+
+
 </script>
 
     <!-- Team Section Start -->

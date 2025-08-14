@@ -106,7 +106,6 @@
     .privacy-policy-content p {
         font-size: 16px;
         margin-bottom: 20px;
-        /* padding: 0 10px; */
     }
 
     .highlight-text {
@@ -118,24 +117,55 @@
         margin-bottom: 15px;
     }
 
+    /* Top Nav for Mobile */
+    .mobile-topbar {
+        display: none;
+        background: linear-gradient(135deg, #2e2e2e 0%, #1f1f1f 35%, #2b0a3d 100%);
+        padding: 10px 50px;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .mobile-topbar img {
+        height: 40px;
+    }
+    .mobile-topbar a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 16px;
+    }
 
     /* Media Query for Smaller Screens */
-    @media (max-width: 768px) {
+    @media (max-width: 800px) {
         .left-sidebar {
-            width: 200px;
+            display: none;
         }
-
+        .mobile-topbar {
+            display: flex;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 999;
+        }
         .content {
-            margin-left: 210px;
+            margin-left: 0;
+            padding-top: 70px; /* space for topbar */
         }
-
-        .highlight-text {
-            font-size: 24px;
+        .privacy-policy-section{
+            margin-top: 0;
+            padding-top: 0;
         }
     }
     </style>
 </head>
 <body>
+
+    <!-- Mobile Topbar -->
+    <div class="mobile-topbar">
+        <a href="index.html"><img src="assets/img/logo.png" alt="Logo"></a>
+        <a href="index.html">Home</a>
+    </div>
 
     <!-- Left Sidebar -->
     <aside class="left-sidebar">
@@ -157,7 +187,6 @@
             <li><a href="#section8">Your Rights</a></li>
             <li><a href="#section9">Contact Us</a></li>
             <li><a href="#section10">Policy Updates</a></li>
-
         </ul>
     </aside>
 
