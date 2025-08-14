@@ -8,6 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="author" content="modinatheme">
         <meta name="description" content="Cupent Entertainment">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
         <!-- ======== Page title ============ -->
         <title>CUP Entertainment</title>
         <!--<< Favicon >>-->
@@ -31,63 +32,54 @@
         <!--<< Style.css >>-->
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="my.css">
-        <script>
-            document.getElementById('mobile-menu-toggle').addEventListener('click', function () {
-              document.querySelector('.header-main').classList.toggle('mobile-menu-open');
-            });
-            </script>
+        
     </head>
-    <header>
-       
-            <div id="header-sticky" class="header-1">
-              <div class="container-fluid">
-                <div class="mega-menu-wrapper">
-                  <div class="header-main d-flex justify-content-between align-items-center">
-          
-                    <!-- Logo -->
-                    <div class="logo">
-                      <a href="index.html" class="header-logo">
-                        <img src="assets/img/logo-dark.png" alt="logo-img">
-                      </a>
-                      <a href="index.html" class="header-logo-2">
-                        <img src="assets/img/logo.png" alt="logo-img">
-                      </a>
-                    </div>
-          
-                    <!-- Mobile Menu Toggle -->
-                    <div class="mobile-toggle d-lg-none">
-                      <button id="mobile-menu-toggle" aria-label="Open Menu">
-                        <i class="fa fa-bars" style="font-size: 22px; color: white;"></i>
-                      </button>
-                    </div>
-          
-                    <!-- Navigation -->
-                    <div class="header-left">
-                      <div class="mean__menu-wrapper">
-                        <div class="main-menu d-none d-lg-block">
-                          <nav id="mobile-menu">
-                            <ul>
-                              <li><a href="index.html">Home</a></li>
-                              <li><a href="aboutUs.html">About Us</a></li>
-                              <li><a href="contactUS.html">Contact Us</a></li>
-                              <li>
-                                <a class="text-area text-center mt-2 mb-2 d-block"
-                                   style="color: aliceblue; text-decoration: none; padding: 10px; background-color: #9d0dad; border-radius: 5px;">
-                                  Pre-Register Now
-                                </a>
-                              </li>
-                            </ul>
-                          </nav>
-                        </div>
-                      </div>
-                    </div>
-          
-                  </div>
-                </div>
-              </div>
-            </div>
-          
-    </header>
+    <!-- Header -->
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #1b1a1a;">
+      <div class="container-fluid">
+  
+        <!-- Logo -->
+        <a class="navbar-brand" href="index.html">
+          <img src="assets/img/logo-dark.png" alt="logo" style="height: 40px;">
+        </a>
+  
+        <!-- Mobile Toggle Button -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+          aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+  
+        <!-- Navigation Menu -->
+        <div class="collapse navbar-collapse" id="mainNavbar">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+  
+            <li class="nav-item">
+              <a class="nav-link active" href="index.html">Home</a>
+            </li>
+  
+            <li class="nav-item">
+              <a class="nav-link" href="aboutUs.html">About Us</a>
+            </li>
+  
+            <li class="nav-item">
+              <a class="nav-link" href="contactUS.html">Contact Us</a>
+            </li>
+  
+            <li class="nav-item">
+              <a class="btn btn-primary ms-lg-3" href="#"
+                 style="background-color: #9d0dad; border: none; color: white;">
+                Pre-Register Now
+              </a>
+            </li>
+  
+          </ul>
+        </div>
+  
+      </div>
+    </nav>
+  </header>
+  
     <body>
 <section class="contact-section" style="margin: 5%; background-color: #1b1a1a;">
   <div class="contact-container">
@@ -194,7 +186,11 @@
         </div>
     </footer>
 
-
+    <script>
+        document.getElementById('mobile-menu-toggle').addEventListener('click', function () {
+          document.querySelector('.header-main').classList.toggle('mobile-menu-open');
+        });
+        </script>
 
     </body>
 </html>
