@@ -761,6 +761,271 @@ body {
   color: #22c55e;
 }
 
+
+/* =========================
+   Global / Utilities
+========================= */
+html, body { overflow-x: hidden; }
+img, video { max-width: 100%; height: auto; }
+.container, .container-fluid { padding-left: 16px; padding-right: 16px; }
+
+/* Brand helpers (optional) */
+:root {
+  --brand: #A03C97;
+  --bg-dark: #1a1919;
+  --text: #eaeaea;
+}
+
+/* =========================
+   Header / Nav
+========================= */
+#header-sticky .header-main { padding: 12px 16px; }
+.header-logo img { max-height: 44px; height: auto; }
+
+@media (max-width: 991.98px) {
+  #header-sticky .header-main { padding: 10px 12px; }
+  .header-left { margin-top: 6px; }
+  /* Make the “Pre‑Register Now” nav item fit nicely on mobile */
+  nav .text-area {
+    display: inline-block;
+    margin: 12px auto !important;
+    padding: 10px 16px !important;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #000, var(--brand));
+  }
+}
+
+/* =========================
+   Hero
+========================= */
+.hero-section .hero-image {
+  min-height: 66vh;              /* Fluid height instead of fixed px */
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-section .hero-content h3 {
+  font-size: clamp(16px, 3.8vw, 22px);
+  line-height: 1.5;
+  margin-top: 1rem;
+}
+
+/* Prev/Next overlay buttons */
+.array-button {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  pointer-events: none;           /* allow inner buttons only */
+}
+.array-button button {
+  pointer-events: auto;
+  width: 48px; height: 48px;
+  border: 0; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+}
+@media (max-width: 576px) {
+  .array-button button { width: 36px; height: 36px; }
+  .array-button i { font-size: 12px; }
+}
+
+/* =========================
+   Countdown block
+========================= */
+.countdown {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.countdown .highlight-date {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 12px !important;
+  font-size: clamp(14px, 3.4vw, 18px);
+}
+
+.countdown > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 72px;
+}
+
+.time-box {
+  display: inline-block;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: #111;
+  color: var(--text);
+  font-weight: 700;
+  font-size: clamp(24px, 8vw, 56px);
+  line-height: 1;
+}
+.label {
+  margin-top: 6px;
+  font-size: clamp(10px, 2.8vw, 14px);
+  opacity: .85;
+}
+
+/* =========================
+   Horizontal Poster Slider
+========================= */
+#img-slider { position: relative; }
+#img-slider .scroll-wrapper { scroll-behavior: smooth; }
+
+.servie-card-image-items {
+  background-size: cover;
+  background-position: center;
+  border-radius: 14px;
+  /* desktop defaults (you had 300x450) */
+  width: 300px;
+  height: 450px;
+}
+
+@media (max-width: 1200px) {
+  .servie-card-image-items { width: 260px; height: 390px; }
+}
+@media (max-width: 992px) {
+  .servie-card-image-items { width: 220px; height: 330px; }
+}
+@media (max-width: 768px) {
+  /* Scale by viewport width for small screens */
+  .servie-card-image-items {
+    width: 46vw;
+    height: calc(46vw * 1.5);
+  }
+}
+@media (max-width: 480px) {
+  .servie-card-image-items {
+    width: 60vw;
+    height: calc(60vw * 1.5);
+  }
+}
+
+/* Gradients at edges already present—keep them sized on mobile */
+#img-slider::before, #img-slider::after { width: 60px; }
+@media (max-width: 576px) {
+  #img-slider::before, #img-slider::after { width: 40px; }
+}
+
+/* =========================
+   Language slider
+========================= */
+#lang-slider { background-color: var(--bg-dark); }
+#lang-slider .item {
+  font-size: clamp(12px, 2.8vw, 14px);
+  padding: 8px 12px;
+}
+
+/* =========================
+   Footer
+========================= */
+.footer-widgets-wrapper .single-footer-widget .widget-head img {
+  height: auto; max-width: 180px;
+}
+.footer-bottom p { margin: 0; text-align: center; }
+
+@media (max-width: 991.98px) {
+  .footer-widgets-wrapper .single-footer-widget {
+    margin-bottom: 24px; text-align: center;
+  }
+}
+
+/* =========================
+   Small fixes
+========================= */
+/* Avoid long words forcing horizontal scroll */
+h1, h2, h3, h4, h5, h6, p, a, span { overflow-wrap: anywhere; }
+
+/* Make links tap-friendly on mobile */
+a, button { -webkit-tap-highlight-color: transparent; }
+@media (max-width: 768px) {
+  .about-image {
+    text-align: center; /* Center the image container */
+  }
+
+  .about-image img {
+    display: inline-block; /* Let the image size naturally */
+    max-width: 100%;       /* Scale to fit screen */
+    height: auto;          /* Maintain aspect ratio */
+  }
+}
+
+/* Mobile horizontal scroll */
+@media (max-width: 768px) {
+  #img-slider .scroll-wrapper {
+    overflow-x: auto;         /* Enable horizontal scroll */
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    scroll-behavior: smooth;  
+  }
+
+  #img-slider .scroll-wrapper::-webkit-scrollbar {
+    height: 6px;              /* Small scrollbar */
+  }
+  #img-slider .scroll-wrapper::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.3);
+    border-radius: 3px;
+  }
+  #img-slider .scroll-wrapper::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  /* Let posters size better on small screens */
+  .servie-card-image-items {
+    width: 60vw;              /* 60% of viewport width */
+    height: calc(60vw * 1.5); /* Keep original ratio */
+    margin-right: 12px;
+    border-radius: 12px;
+    flex-shrink: 0;           /* Prevent shrinking */
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+/* Mobile Menu Styling */
+@media (max-width: 991px) {
+  .main-menu {
+    display: none; /* hide full menu */
+  }
+  .mobile-menu-open .main-menu {
+    display: block;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100%;
+    background: #1b1a1a;
+    padding: 20px;
+    z-index: 9999;
+  }
+  .main-menu ul {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .main-menu ul li a {
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+  }
+  #mobile-menu-toggle {
+    background: none;
+    border: none;
+  }
+}
+
+
+
+
+
 }
 
 

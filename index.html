@@ -546,33 +546,33 @@ const timer = setInterval(function () {
     <!-- Service Section Start -->
     <section class="service-section section-padding pt-0" id="img-slider">
         <div class="container" style="max-width:100%;">
-            <div class="scroll-wrapper" id="scrollWrapper">
-                <div class="row g-0 flex-nowrap">
-                    <div class="col-xl-2 col-lg-3 col-md-4wow fadeInUp" data-wow-delay=".3s">
-                        <div class="servie-card-image-items" style="background-image: url('assets/img/images/Ready-Steady-go-Poster-midsize.png');"></div>
-                    </div>
-                    <div class="col-xl-2 col-lg-3 col-md-4wow fadeInUp" data-wow-delay=".3s">
-                        <div class="servie-card-image-items" style="background-image: url('assets/img/images/Nadaan-Muhabbat-midsize.png');"></div>
-                    </div>
-                    <div class="col-xl-2 col-lg-3 col-md-4wow fadeInUp" data-wow-delay=".3s">
-                        <div class="servie-card-image-items" style="background-image: url('assets/img/images/Ladoo-shaadi-ka-midsize.png');"></div>
-                    </div>
-                    <div class="col-xl-2 col-lg-3 col-md-4wow fadeInUp" data-wow-delay=".3s">
-                        <div class="servie-card-image-items" style="background-image: url('assets/img/images/hashmat-and-family-midsize.png');"></div>
-                    </div>
-                    <div class="col-xl-2 col-lg-3 col-md-4wow fadeInUp" data-wow-delay=".3s">
-                        <div class="servie-card-image-items" style="background-image: url('assets/img/images/Dil-e-umeed-midsoze.png');"></div>
-                    </div>
-                    <div class="col-xl-2 col-lg-3 col-md-4wow fadeInUp" data-wow-delay=".3s">
-                        <div class="servie-card-image-items" style="background-image: url('assets/img/images/SABA-Eazy-Load-Wali-midsize.png');"></div>
-                    </div>
-                    <div class="col-xl-2 col-lg-3 col-md-4wow fadeInUp" data-wow-delay=".3s">
-                        <div class="servie-card-image-items" style="background-image: url('assets/img/images/Luka-Chuppi-Poster-midsize.png');"></div>
-                    </div>
-                </div>
+          <div class="scroll-wrapper" id="scrollWrapper">
+            <div class="row g-0 flex-nowrap">
+              <div class="col-xl-2 col-lg-3 col-md-12 wow fadeInUp" data-wow-delay=".3s">
+                <div class="servie-card-image-items" style="background-image: url('assets/img/images/Ready-Steady-go-Poster-midsize.png');"></div>
+              </div>
+              <div class="col-xl-2 col-lg-3 col-md-4 wow fadeInUp" data-wow-delay=".3s">
+                <div class="servie-card-image-items" style="background-image: url('assets/img/images/Nadaan-Muhabbat-midsize.png');"></div>
+              </div>
+              <div class="col-xl-2 col-lg-3 col-md-4 wow fadeInUp" data-wow-delay=".3s">
+                <div class="servie-card-image-items" style="background-image: url('assets/img/images/Ladoo-shaadi-ka-midsize.png');"></div>
+              </div>
+              <div class="col-xl-2 col-lg-3 col-md-4 wow fadeInUp" data-wow-delay=".3s">
+                <div class="servie-card-image-items" style="background-image: url('assets/img/images/hashmat-and-family-midsize.png');"></div>
+              </div>
+              <div class="col-xl-2 col-lg-3 col-md-4 wow fadeInUp" data-wow-delay=".3s">
+                <div class="servie-card-image-items" style="background-image: url('assets/img/images/Dil-e-umeed-midsoze.png');"></div>
+              </div>
+              <div class="col-xl-2 col-lg-3 col-md-4 wow fadeInUp" data-wow-delay=".3s">
+                <div class="servie-card-image-items" style="background-image: url('assets/img/images/SABA-Eazy-Load-Wali-midsize.png');"></div>
+              </div>
+              <div class="col-xl-2 col-lg-3 col-md-4 wow fadeInUp" data-wow-delay=".3s">
+                <div class="servie-card-image-items" style="background-image: url('assets/img/images/Luka-Chuppi-Poster-midsize.png');"></div>
+              </div>
             </div>
+          </div>
         </div>
-    </section>
+      </section>
     
 
 
@@ -848,7 +848,45 @@ const timer = setInterval(function () {
             <script src="assets/js/main.js"></script>
    
 
-    
+    <script>
+     
+/* 1) Use native selects on small screens (better mobile UX) */
+function toggleNiceSelect() {
+  var small = window.matchMedia('(max-width: 576px)').matches;
+  if (small) {
+    if ($('.nice-select').length) $('select').niceSelect('destroy');
+  } else {
+    $('select').each(function () {
+      if (!$(this).next().hasClass('nice-select')) $(this).niceSelect();
+    });
+  }
+}
+$(function () {
+  toggleNiceSelect();
+  $(window).on('resize orientationchange', toggleNiceSelect);
+});
+
+/* 2) Keep the horizontal poster slider looping responsively */
+(function () {
+  var wrapper = $('#scrollWrapper');
+  if (!wrapper.length) return;
+
+  var content = wrapper.find('.row').first();
+  var scrollSpeed = 1.2; // adjust for faster/slower
+  // Clone once for seamless loop
+  if (wrapper.children().length === 1) content.clone().appendTo(wrapper);
+
+  function loop() {
+    wrapper.scrollLeft(wrapper.scrollLeft() + scrollSpeed);
+    // Reset when full original width scrolled
+    var threshold = content.get(0).scrollWidth || content.width();
+    if (wrapper.scrollLeft() >= threshold) wrapper.scrollLeft(0);
+    requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(loop);
+})();
+
+    </script>
 
 
         </body>

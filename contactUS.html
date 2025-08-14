@@ -31,68 +31,62 @@
         <!--<< Style.css >>-->
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="my.css">
+        <script>
+            document.getElementById('mobile-menu-toggle').addEventListener('click', function () {
+              document.querySelector('.header-main').classList.toggle('mobile-menu-open');
+            });
+            </script>
     </head>
     <header>
-        <div id="header-sticky" class="header-1">
-            <div class="container-fluid">
+       
+            <div id="header-sticky" class="header-1">
+              <div class="container-fluid">
                 <div class="mega-menu-wrapper">
-                    <div class="header-main">
-                        <div class="logo">
-                            <a href="index.html" class="header-logo">
-                                 <img src="assets/img/logo-dark.png" alt="logo-img">
-                            </a>
-                            <a href="index.html" class="header-logo-2">
-                                <img src="assets/img/logo.png" alt="logo-img">
-                           </a>
-                        </div>
-                        <div class="header-left">
-                            <div class="mean__menu-wrapper">
-                                <div class="main-menu">
-                                    <nav id="mobile-menu">
-                                        <ul>
-                                            <li class="has-dropdown active menu-thumb">
-                                                <a href="index.html">
-                                                Home 
-                                                </a>
-                                                
-                                            </li>
-                                            <li class="has-dropdown active d-lg-none">
-                                                <a href="team.html" class="border-none">
-                                                   Home
-                                                <i class="fas fa-angle-down"></i>
-                                                </a>
-                                                <ul class="submenu">
-                                                    <li><a href="index.html">Home 01</a></li>
-                                                    <li><a href="index-2.html">Home 02</a></li>
-                                                    <li><a href="index-3.html">Home 03</a></li>
-                                                    <li><a href="index-4.html">Home 04</a></li>
-                                                </ul>
-                                            </li>
-                                           
-                                            <li>
-                                                <a href="aboutUs.html">About Us</a>
-                                            </li>
-                                                                        
-                                            
-                                            
-                                            <li>
-                                                <a href="contactUS.html">Contact Us</a>
-                                            </li>
-    
-                                            <li>
-                                                <a class="text-area text-center mt-5 wow fadeInUp mb-5 d-block"
-                                                data-wow-delay=".4s" href="" style="color: aliceblue; text-decoration: none;max-width:fit-content;padding: 10px;">Pre-Register Now</a>
-                                            </li>
-                                        </ul>
-                                    </nav>
-                                </div>
-                            </div>
-                        </div>
-    
+                  <div class="header-main d-flex justify-content-between align-items-center">
+          
+                    <!-- Logo -->
+                    <div class="logo">
+                      <a href="index.html" class="header-logo">
+                        <img src="assets/img/logo-dark.png" alt="logo-img">
+                      </a>
+                      <a href="index.html" class="header-logo-2">
+                        <img src="assets/img/logo.png" alt="logo-img">
+                      </a>
                     </div>
+          
+                    <!-- Mobile Menu Toggle -->
+                    <div class="mobile-toggle d-lg-none">
+                      <button id="mobile-menu-toggle" aria-label="Open Menu">
+                        <i class="fa fa-bars" style="font-size: 22px; color: white;"></i>
+                      </button>
+                    </div>
+          
+                    <!-- Navigation -->
+                    <div class="header-left">
+                      <div class="mean__menu-wrapper">
+                        <div class="main-menu d-none d-lg-block">
+                          <nav id="mobile-menu">
+                            <ul>
+                              <li><a href="index.html">Home</a></li>
+                              <li><a href="aboutUs.html">About Us</a></li>
+                              <li><a href="contactUS.html">Contact Us</a></li>
+                              <li>
+                                <a class="text-area text-center mt-2 mb-2 d-block"
+                                   style="color: aliceblue; text-decoration: none; padding: 10px; background-color: #9d0dad; border-radius: 5px;">
+                                  Pre-Register Now
+                                </a>
+                              </li>
+                            </ul>
+                          </nav>
+                        </div>
+                      </div>
+                    </div>
+          
+                  </div>
                 </div>
+              </div>
             </div>
-        </div>
+          
     </header>
     <body>
 <section class="contact-section" style="margin: 5%; background-color: #1b1a1a;">
