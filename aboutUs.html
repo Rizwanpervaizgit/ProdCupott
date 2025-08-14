@@ -8,10 +8,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="author" content="modinatheme">
         <meta name="description" content="Cupent Entertainment">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
         <!-- ======== Page title ============ -->
         <title>CUP Entertainment</title>
-
-
+        <!--<< Favicon >>-->
         <link rel="shortcut icon" href="assets/img/fav-logo.png">
         <!--<< Bootstrap min.css >>-->
         <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -32,12 +32,16 @@
         <!--<< Style.css >>-->
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="my.css">
-        <script>
-            window.addEventListener('DOMContentLoaded', (event) => {
-    // Add the 'fade-in' class when the page is loaded
-    document.querySelector('.about-image').classList.add('fade-in');
-});
-        </script>
+        <style>
+            .about-section{
+                margin-top: 10% !important;
+            }
+            @media (max-width: 768px) {
+                .about-section{
+                    margin-top: -40px !important;
+                }
+            }
+        </style>
     </head>
     <div id="header-container"></div>
 
@@ -124,7 +128,7 @@
     </script>
       
     <body>
-        <section class="about-section section-padding pt-0 fix" style="margin-top: 10%;">
+        <section class="about-section section-padding pt-0 fix">
             <div class="container">
                 <div class="about-wrapper">
                     <div class="row align-items-center">
