@@ -30,6 +30,30 @@
         <link rel="stylesheet" href="assets/css/main.css">
         <!--<< Style.css >>-->
         <link rel="stylesheet" href="style.css">
+        <style>
+            /* Keep images grouped together on mobile */
+@media (max-width: 991px) {
+    .combined-images {
+        position: relative !important;
+        display: inline-block !important;
+        width: 100% !important;
+        text-align: center !important;
+    }
+    .combined-images .choose-image,
+    .combined-images .choose-image-2 {
+        position: relative !important;
+        display: inline-block !important;
+        vertical-align: middle !important;
+        width: auto !important;
+        max-width: 100% !important;
+    }
+    .combined-images .choose-image-2 {
+        margin-left: -50px; /* Adjust overlap */
+        margin-top: 0 !important;
+    }
+}
+
+        </style>
     </head>
 
     <body>
@@ -398,31 +422,38 @@
        </div>
 
         <!-- Choose Us Section Start -->
-        <section class="choose-us-section fix section-padding">
-            <div class="left-shape float-bob-y">
-                <img src="assets/img/shape-5.png" alt="shape-img">
-            </div>
-            <div class="container">
-                <div class="choose-wrapper style-2 mb-0">
-                    <div class="row">
-                        <div class="col-xl-6 col-lg-6">
-                            <div class="choose-image-items">
-                                <div class="choose-image bg-cover wow fadeInUp" data-wow-delay=".3s" style="background-image: url('assets/img/choose/03.jpg');">
-                                    <div class="box-shape">
-                                        <img src="assets/img/about/box-shape.png" alt="shape-img">
-                                    </div>
-                                </div>
-                                <div class="choose-image-2 wow fadeInRight" data-wow-delay=".5s">
-                                    <img src="assets/img/choose/04.jpg" alt="choose-img">
-                                </div>
-                                <div class="icon-box">
-                                    <i class="flaticon-send"></i>
-                                    <div class="circle-text">
-                                        <img src="assets/img/circle-text.png" alt="img" class="text-circle">
-                                    </div>
-                                </div>
+<section class="choose-us-section fix section-padding">
+    <div class="left-shape float-bob-y">
+        <img src="assets/img/shape-5.png" alt="shape-img">
+    </div>
+    <div class="container">
+        <div class="choose-wrapper style-2 mb-0">
+            <div class="row">
+                <div class="col-xl-6 col-lg-6">
+                    <!-- Wrap both image sections into one container -->
+                    <div class="choose-image-items combined-images">
+                        <div class="choose-image bg-cover wow fadeInUp" data-wow-delay=".3s" style="background-image: url('assets/img/choose/03.jpg');">
+                            <div class="box-shape">
+                                <img src="assets/img/about/box-shape.png" alt="shape-img">
                             </div>
                         </div>
+                        <div class="choose-image-2 wow fadeInRight" data-wow-delay=".5s">
+                            <img src="assets/img/choose/04.jpg" alt="choose-img">
+                        </div>
+                        <div class="icon-box">
+                            <i class="flaticon-send"></i>
+                            <div class="circle-text">
+                                <img src="assets/img/circle-text.png" alt="img" class="text-circle">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Your other column stays here unchanged -->
+            </div>
+        </div>
+    </div>
+</section>
+
                         <div class="col-xl-6 col-lg-6 mt-5 mt-lg-0">
                             <div class="choose-content">
                                 <div class="section-title wow fadeInUp" data-wow-delay=".3s">

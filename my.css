@@ -722,7 +722,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('assets/img/images/about.png'); /* Set the background image */
+    /* background-image: url('assets/img/images/about.png'); Set the background image */
     background-size: cover; /* Cover the entire area */
     background-position: center; /* Center the background */
     z-index: -1; /* Place it behind other content */
