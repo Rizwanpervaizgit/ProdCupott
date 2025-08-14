@@ -128,24 +128,56 @@
     </p>
 
     <!-- Contact Form -->
-    <form class="contact-form" action="https://formspree.io/f/xzzvwrzz"  method="POST" >
-      <div class="form-group">
-        <label for="fullname">Full Name</label>
-        <input type="text" id="fullname" name="fullname" style="color: #1b1a1a;" placeholder="Enter your full name" required>
-      </div>
-
-      <div class="form-group">
-        <label for="email">Email Address</label>
-        <input type="email" id="email" name="email" style="color: #1b1a1a;" placeholder="Enter your email" required>
-      </div>
-
-      <div class="form-group">
-        <label for="message">Your Message</label>
-        <textarea id="message" name="message" placeholder="Type your message" rows="5" required></textarea>
-      </div>
-
-      <button type="submit" class="btn-submit">Send Message</button>
-    </form>
+    <form class="contact-form" id="contactForm">
+        <div class="form-group">
+          <label for="fullname">Full Name</label>
+          <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required>
+        </div>
+      
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+      
+        <div class="form-group">
+          <label for="message">Your Message</label>
+          <textarea id="message" name="message" placeholder="Type your message" rows="5" required></textarea>
+        </div>
+      
+        <button type="submit" class="btn-submit">Send Message</button>
+      </form>
+      
+      <!-- Status message -->
+      <div id="form-status" style="margin-top: 10px; font-weight: bold;"></div>
+      
+      <script>
+      document.getElementById("contactForm").addEventListener("submit", function(e) {
+        e.preventDefault(); // Stop page reload
+      
+        const form = e.target;
+        const data = new FormData(form);
+      
+        fetch("https://formspree.io/f/xzzvwrzz", {
+          method: "POST",
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        })
+        .then(response => {
+          if (response.ok) {
+            document.getElementById("form-status").innerText = "✅ Thanks! Your message has been sent.";
+            document.getElementById("form-status").style.color = "green";
+            form.reset();
+          } else {
+            document.getElementById("form-status").innerText = "❌ Oops! Something went wrong. Please try again.";
+            document.getElementById("form-status").style.color = "red";
+          }
+        })
+        .catch(() => {
+          document.getElementById("form-status").innerText = "❌ Network error. Please check your connection.";
+          document.getElementById("form-status").style.color = "red";
+        });
+      });
+      </script>
 </section>
     <!-- Footer Section Start -->
     <footer class="footer-section fix footer-bg">
