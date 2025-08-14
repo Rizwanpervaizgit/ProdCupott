@@ -54,6 +54,7 @@ body {
   color: white;
 }
 /* Modal Overlay */
+
 .modal-overlay {
   display: none;
   position: fixed;
@@ -107,6 +108,9 @@ body {
   max-width: 400px;
   width: 100%;
   box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+.input-label{
+  color: rgb(2, 1, 1);
 }
 
 /* Close Button */

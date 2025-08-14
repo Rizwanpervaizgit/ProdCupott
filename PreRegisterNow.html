@@ -31,6 +31,86 @@
         <!--<< Style.css >>-->
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="my.css">
+        <style>
+            /* Labels */
+            .form-group label {
+              font-weight: 600;
+              margin-bottom: 8px;
+              display: block;
+              color: #fcfbfb;
+              font-size: 1.05rem;
+            }
+            
+            /* Form row for side-by-side layout */
+            .form-row {
+              display: flex;
+              gap: 20px;
+              flex-wrap: wrap;
+            }
+            
+            .form-group {
+              flex: 1;
+              min-width: 250px;
+            }
+            
+            /* All form fields: input, select, textarea */
+            input,
+            select,
+            textarea {
+              width: 100%;
+              padding: 10px 14px;
+              border-radius: 10px;
+              border: 2px solid #9d0dad;
+              background-color: #f8f8f8;
+              font-size: 0.95rem;
+              color: #000; /* Always black text */
+              outline: none;
+              transition: all 0.3s ease;
+              box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+            }
+            
+            /* Keep text black even after focus changes */
+            input:focus,
+            select:focus,
+            textarea:focus {
+              border-color: #8610a3;
+              background-color: #fff;
+              box-shadow: 0 4px 12px rgba(157, 13, 173, 0.2);
+              color: #000; /* Keep black text */
+            }
+            
+            /* Dropdown arrow for country only */
+            #country {
+              appearance: none;
+              background-image: url("data:image/svg+xml;utf8,<svg fill='%239d0dad' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+              background-repeat: no-repeat;
+              background-position: right 12px center;
+              background-size: 18px;
+            }
+            
+            select option {
+              padding: 8px;
+            }
+            
+            /* Checkbox with text inline */
+            .form-group-checkbox {
+              display: flex;
+              align-items: center;
+              gap: 8px;
+              font-weight: 500;
+              color: #fcfbfb;
+              font-size: 1rem;
+            }
+            
+            .form-group-checkbox input[type="checkbox"] {
+              width: 18px;
+              height: 18px;
+              accent-color: #9d0dad;
+              cursor: pointer;
+            }
+            </style>
+            
+          
        
     </head>
     <header>
@@ -105,19 +185,19 @@
                 <form id="registerForm">
                     <div class="form-group">
                         <label for="name">Full Name</label>
-                        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                        <input type="text" id="name" class="input-label" name="name" placeholder="Enter your name" required>
                     </div>
         
                     <div class="form-group">
                         <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                        <input type="email" id="email" class="input-label" name="email" placeholder="Enter your email" required>
                     </div>
         
                     <div class="form-group">
                         <label for="mobile">Mobile Number <span style="font-weight: normal;">(Optional)</span></label>
-                        <input type="tel" id="mobile" name="mobile" placeholder="Enter your mobile number">
+                        <input type="tel" id="mobile" class="input-label"name="mobile" placeholder="Enter your mobile number">
                     </div>
-        
+        <div class="form-row">
                     <div class="form-group">
                         <label for="device">Select A Country</label>
                         <select name="country" id="country">
@@ -336,14 +416,13 @@
                         </select>
                         <!-- Tip: Ctrl/Cmd + Click to select multiple (or Shift for ranges) -->
                     </div>
-        
-                    <div class="form-group">
-                        <label>
-                           
-                            Keep me informed with exclusive updates and offers.
-                            <input type="checkbox" name="updates" value="yes">
-                        </label>
-                    </div>
+        </div>
+        <div class="form-group">
+            <label class="form-group-checkbox">
+              <input type="checkbox" name="updates" value="yes">
+              Keep me informed with exclusive updates and offers.
+            </label>
+          </div>
         
                     <button type="submit" style="max-width: fit-content; align-self: center;" class="submit-btn">Submit</button>
                 </form>
