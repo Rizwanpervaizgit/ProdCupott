@@ -688,7 +688,7 @@ body {
     height: 350px;
     background-size: cover;
     background-position: center;
-    border-radius: 10px;
+    
     flex-shrink: 0;
   }
   
@@ -885,7 +885,7 @@ img, video { max-width: 100%; height: auto; }
 .servie-card-image-items {
   background-size: cover;
   background-position: center;
-  border-radius: 14px;
+ 
   /* desktop defaults (you had 300x450) */
   width: 300px;
   height: 450px;
@@ -985,7 +985,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
     width: 60vw;              /* 60% of viewport width */
     height: calc(60vw * 1.5); /* Keep original ratio */
     margin-right: 12px;
-    border-radius: 12px;
+    
     flex-shrink: 0;           /* Prevent shrinking */
     background-size: cover;
     background-position: center;
