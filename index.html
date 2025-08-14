@@ -562,35 +562,165 @@ const timer = setInterval(function () {
     </section>
     
     <!-- Service Section Start -->
-    <section class="service-section section-padding pt-0" id="img-slider">
-        <div class="container" style="max-width:100%;">
-          <div class="scroll-wrapper" id="scrollWrapper">
-            <div class="row g-0 flex-nowrap">
-              <div class="col-xl-2 col-lg-3 col-md-12 wow fadeInUp" data-wow-delay=".3s">
-                <div class="servie-card-image-items" style="background-image: url('assets/img/images/Ready-Steady-go-Poster-midsize.png');"></div>
+     <div id="imgsliderset"></div>
+     <script>
+        function loadSlider() {
+          const isMobile = window.innerWidth <= 768;
+          const sliderContainer = document.getElementById("imgsliderset");
+        
+          const mobileSlider = `
+            <section class="service-section section-padding pt-0 mobile-slider" id="img-slider">
+              <div class="container" style="max-width:100%;">
+                <div class="scroll-wrapper" id="scrollWrapper">
+                  <div class="slider-track">
+                    <div class="slider-item">
+                      <div class="servie-card-image-items" style="background-image: url('assets/img/images/Ready-Steady-go-Poster-midsize.png');"></div>
+                    </div>
+                    <div class="slider-item">
+                      <div class="servie-card-image-items" style="background-image: url('assets/img/images/Nadaan-Muhabbat-midsize.png');"></div>
+                    </div>
+                    <div class="slider-item">
+                      <div class="servie-card-image-items" style="background-image: url('assets/img/images/Ladoo-shaadi-ka-midsize.png');"></div>
+                    </div>
+                    <div class="slider-item">
+                      <div class="servie-card-image-items" style="background-image: url('assets/img/images/hashmat-and-family-midsize.png');"></div>
+                    </div>
+                    <div class="slider-item">
+                      <div class="servie-card-image-items" style="background-image: url('assets/img/images/Dil-e-umeed-midsoze.png');"></div>
+                    </div>
+                    <div class="slider-item">
+                      <div class="servie-card-image-items" style="background-image: url('assets/img/images/SABA-Eazy-Load-Wali-midsize.png');"></div>
+                    </div>
+                    <div class="slider-item">
+                      <div class="servie-card-image-items" style="background-image: url('assets/img/images/Luka-Chuppi-Poster-midsize.png');"></div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="col-xl-2 col-lg-3 col-md-4 wow fadeInUp" data-wow-delay=".3s">
-                <div class="servie-card-image-items" style="background-image: url('assets/img/images/Nadaan-Muhabbat-midsize.png');"></div>
-              </div>
-              <div class="col-xl-2 col-lg-3 col-md-4 wow fadeInUp" data-wow-delay=".3s">
-                <div class="servie-card-image-items" style="background-image: url('assets/img/images/Ladoo-shaadi-ka-midsize.png');"></div>
-              </div>
-              <div class="col-xl-2 col-lg-3 col-md-4 wow fadeInUp" data-wow-delay=".3s">
-                <div class="servie-card-image-items" style="background-image: url('assets/img/images/hashmat-and-family-midsize.png');"></div>
-              </div>
-              <div class="col-xl-2 col-lg-3 col-md-4 wow fadeInUp" data-wow-delay=".3s">
-                <div class="servie-card-image-items" style="background-image: url('assets/img/images/Dil-e-umeed-midsoze.png');"></div>
-              </div>
-              <div class="col-xl-2 col-lg-3 col-md-4 wow fadeInUp" data-wow-delay=".3s">
-                <div class="servie-card-image-items" style="background-image: url('assets/img/images/SABA-Eazy-Load-Wali-midsize.png');"></div>
-              </div>
-              <div class="col-xl-2 col-lg-3 col-md-4 wow fadeInUp" data-wow-delay=".3s">
-                <div class="servie-card-image-items" style="background-image: url('assets/img/images/Luka-Chuppi-Poster-midsize.png');"></div>
+            </section>
+          `;
+        
+          const desktopSlider = `
+            <section class="service-section section-padding pt-0" id="img-slider">
+            <div class="container" style="max-width:100%;">
+              <div class="scroll-wrapper" id="scrollWrapper">
+                <div class="row g-0 flex-nowrap">
+                  <div class="col-xl-2 col-lg-3 col-md-12 wow fadeInUp" data-wow-delay=".3s">
+                    <div class="servie-card-image-items" style="background-image: url('assets/img/images/Ready-Steady-go-Poster-midsize.png');"></div>
+                  </div>
+                  <div class="col-xl-2 col-lg-3 col-md-4 wow fadeInUp" data-wow-delay=".3s">
+                    <div class="servie-card-image-items" style="background-image: url('assets/img/images/Nadaan-Muhabbat-midsize.png');"></div>
+                  </div>
+                  <div class="col-xl-2 col-lg-3 col-md-4 wow fadeInUp" data-wow-delay=".3s">
+                    <div class="servie-card-image-items" style="background-image: url('assets/img/images/Ladoo-shaadi-ka-midsize.png');"></div>
+                  </div>
+                  <div class="col-xl-2 col-lg-3 col-md-4 wow fadeInUp" data-wow-delay=".3s">
+                    <div class="servie-card-image-items" style="background-image: url('assets/img/images/hashmat-and-family-midsize.png');"></div>
+                  </div>
+                  <div class="col-xl-2 col-lg-3 col-md-4 wow fadeInUp" data-wow-delay=".3s">
+                    <div class="servie-card-image-items" style="background-image: url('assets/img/images/Dil-e-umeed-midsoze.png');"></div>
+                  </div>
+                  <div class="col-xl-2 col-lg-3 col-md-4 wow fadeInUp" data-wow-delay=".3s">
+                    <div class="servie-card-image-items" style="background-image: url('assets/img/images/SABA-Eazy-Load-Wali-midsize.png');"></div>
+                  </div>
+                  <div class="col-xl-2 col-lg-3 col-md-4 wow fadeInUp" data-wow-delay=".3s">
+                    <div class="servie-card-image-items" style="background-image: url('assets/img/images/Luka-Chuppi-Poster-midsize.png');"></div>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
+          </section>
+          `;
+        
+          sliderContainer.innerHTML = isMobile ? mobileSlider : desktopSlider;
+          
+          // Initialize the appropriate slider based on screen size
+          if (isMobile) {
+            initMobileSlider();
+          } else {
+            initDesktopSlider();
+          }
+        }
+        
+        function initMobileSlider() {
+          // Add mobile-specific styles
+          const style = document.createElement('style');
+          style.textContent = `
+            .mobile-slider {
+              position: relative;
+              overflow: hidden;
+              padding: 15px 0;
+            }
+            .mobile-slider .scroll-wrapper {
+              overflow: hidden;
+              width: 100%;
+            }
+            .mobile-slider .slider-track {
+              display: flex;
+              width: max-content;
+              animation: scrollMobile 25s linear infinite;
+            }
+            .mobile-slider .slider-item {
+              flex: 0 0 auto;
+              width: 220px;
+              padding: 0 8px;
+            }
+            @keyframes scrollMobile {
+              0% { transform: translateX(0); }
+              100% { transform: translateX(-50%); }
+            }
+            .mobile-slider:hover .slider-track {
+              animation-play-state: paused;
+            }
+          `;
+          document.head.appendChild(style);
+        }
+        
+        function initDesktopSlider() {
+          // Add desktop-specific styles
+          const style = document.createElement('style');
+          style.textContent = `
+            .desktop-slider .servie-card-image-items {
+              width: 100%;
+              height: 450px;
+              background-size: cover;
+              background-position: center;
+              border-radius: 8px;
+              box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+              transition: transform 0.3s ease;
+            }
+            .desktop-slider .servie-card-image-items:hover {
+              transform: scale(1.03);
+            }
+          `;
+          document.head.appendChild(style);
+          
+          // Initialize desktop slider animation
+          $(document).ready(function() {
+            const wrapper = $('#scrollWrapper');
+            const scrollSpeed = 1;
+            let animationId;
+        
+            function scrollRight() {
+              wrapper.scrollLeft(wrapper.scrollLeft() + scrollSpeed);
+              if (wrapper.scrollLeft() < wrapper[0].scrollWidth - wrapper.width()) {
+                animationId = requestAnimationFrame(scrollRight);
+              }
+            }
+            scrollRight();
+        
+            // Clean up on exit
+            $(window).on('beforeunload', function() {
+              cancelAnimationFrame(animationId);
+            });
+          });
+        }
+        
+        // Initialize on load and resize
+        window.addEventListener('load', loadSlider);
+        window.addEventListener('resize', loadSlider);
+        </script>
+    
     
 
 
