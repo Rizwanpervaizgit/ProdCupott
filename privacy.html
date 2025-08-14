@@ -29,8 +29,7 @@
     <!-- Inline Styling for Privacy Page -->
     <style>
        body {
-        /* Dark gradient background */
-        background: linear-gradient(135deg, #121212 0%, #1f1f1f 35%, #2b0a3d 100%);
+        background: linear-gradient(135deg, #2e2e2e 0%, #1f1f1f 35%, #2b0a3d 100%);
         font-family: 'Inter', Arial, sans-serif;
         color: #EEEEEE;
         line-height: 1.7;
@@ -38,182 +37,218 @@
         padding: 0;
     }
 
-        .privacy-policy-section {
-            margin-top: 80px;
+    /* Sidebar Styling */
+    .left-sidebar {
+        position: fixed;
+        width: 250px;
+        height: 100vh;
+        background: linear-gradient(135deg, #2e2e2e 0%, #1f1f1f 35%, #2b0a3d 100%);
+        color: white;
+        top: 0;
+        left: 0;
+        padding-top: 20px;
+        overflow-y: scroll;
+        padding-right: 10px;
+    }
+
+    .sidebar-logo {
+        text-align: center;
+    }
+
+    .sidebar-logo img {
+        width: 100px;
+    }
+
+    .sidebar-menu {
+        list-style: none;
+        padding: 0;
+        margin-top: 40px;
+    }
+
+    .sidebar-menu li {
+        padding: 15px;
+        font-size: 18px;
+    }
+
+    .sidebar-menu li a {
+        text-decoration: none;
+        color: white;
+        display: block;
+        font-size: 15px;
+    }
+
+    .sidebar-menu li a:hover {
+        background-color: #34495e;
+    }
+
+    .content {
+        margin-left: 260px;
+        padding: 20px;
+    }
+
+    .privacy-policy-section {
+        margin-top: 80px;
+        text-align: start;
+    }
+
+    .privacy-policy-content {
+        max-width: 900px;
+        margin: auto;
+    }
+
+    .privacy-policy-content h2,
+    .privacy-policy-content h3 {
+        color: #FFFFFF;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+
+    .privacy-policy-content p {
+        font-size: 16px;
+        margin-bottom: 20px;
+        /* padding: 0 10px; */
+    }
+
+    .highlight-text {
+        display: block;
+        font-size: 30px;
+        text-align: center;
+        font-weight: bold;
+        color: #FFFFFF;
+        margin-bottom: 15px;
+    }
+
+
+    /* Media Query for Smaller Screens */
+    @media (max-width: 768px) {
+        .left-sidebar {
+            width: 200px;
         }
 
-        .privacy-policy-content {
-            max-width: 900px;
-            margin: auto;
-        }
-
-        .privacy-policy-content h2,
-        .privacy-policy-content h3 {
-            color: #FFFFFF;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .privacy-policy-content p {
-            font-size: 16px;
-            margin-bottom: 20px;
-            text-align: justify;
-            padding: 0 10px;
-        }
-
-        .privacy-policy-content ul {
-            margin-bottom: 25px;
-            padding-left: 40px;
-        }
-
-        .privacy-policy-content ul li {
-            font-size: 16px;
-            margin-bottom: 8px;
+        .content {
+            margin-left: 210px;
         }
 
         .highlight-text {
-            display: block;
-            font-size: 30px;
-            text-align: center;
-            font-weight: bold;
-            color: #FFFFFF;
-            margin-bottom: 15px;
+            font-size: 24px;
         }
-
-        @media (max-width: 768px) {
-            .privacy-policy-content p,
-            .privacy-policy-content ul li {
-                font-size: 15px;
-            }
-            .highlight-text {
-                font-size: 24px;
-            }
-        }
+    }
     </style>
 </head>
 <body>
 
-<!-- Header Section -->
-<header>
-    <div id="header-sticky" class="header-1">
-        <div class="container-fluid">
-            <div class="mega-menu-wrapper">
-                <div class="header-main">
-                    <div class="logo">
-                        <a href="index.html" class="header-logo">
-                            <img src="assets/img/logo-dark.png" alt="logo-img">
-                        </a>
-                        <a href="index.html" class="header-logo-2">
-                            <img src="assets/img/logo.png" alt="logo-img">
-                        </a>
-                    </div>
-                    <div class="header-left">
-                        <div class="mean__menu-wrapper">
-                            <div class="main-menu">
-                                <nav id="mobile-menu">
-                                    <ul>
-                                        <li><a href="index.html">Home</a></li>
-                                        <li><a href="aboutUs.html">About Us</a></li>
-                                        <li><a href="contactUS.html">Contact Us</a></li>
-                                        <li><a href="service-details.html">Pre-Register Now</a></li>
-                                    </ul>
-                                </nav>
-                            </div>
-                        </div>
+    <!-- Left Sidebar -->
+    <aside class="left-sidebar">
+        <div class="sidebar-logo">
+            <a href="index.html">
+                <img src="assets/img/logo.png" alt="Logo">
+            </a>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="contactUs.html">CONTACT US</a></li>
+            <li><a href="#section1">Information We Collect</a></li>
+            <li><a href="#section2">How We Use Your Information</a></li>
+            <li><a href="#section3">Licensed Content and Intellectual Property</a></li>
+            <li><a href="#section4">Marketing and Communication</a></li>
+            <li><a href="#section5"> Cookies & Analytics</a></li>
+            <li><a href="#section6">Data Security</a></li>
+            <li><a href="#section7">External Links</a></li>
+            <li><a href="#section8">Your Rights</a></li>
+            <li><a href="#section9">Contact Us</a></li>
+            <li><a href="#section10">Policy Updates</a></li>
+
+        </ul>
+    </aside>
+
+    <!-- Content Area -->
+    <section class="content">
+        <!-- Privacy Policy Section -->
+        <section class="privacy-policy-section section-padding fix" style="margin-top: 10%;">
+            <div class="container">
+                <div class="privacy-policy-wrapper">
+                    <div class="privacy-policy-content">
+                        
+                        <h2><span class="highlight-text">Privacy Policy</span></h2>
+
+                        <p><strong>Effective Date:</strong>15/07/2025<br>
+                           <strong>Website:</strong>www.cupentertainment.com<br>
+                           <strong>Entity:</strong>Cup Entertainment Global Limited.
+                        </p>
+
+                        <p>At Cup Entertainment Global Limited, your privacy and trust are extremely important to us. This Privacy Policy outlines how we collect, use, and protect your personal data, as well as how we protect the digital content on our platform.</p>
+
+                        <h3 id="section1">Information We Collect</h3>
+                        <p>When you engage with our platform or sign up through www.cupentertainment.com (the “Site”), we may collect:</p>
+                        <ul>
+                            <li>Full Name</li>
+                            <li>Email Address</li>
+                            <li>Mobile Number (optional)</li>
+                            <li>Genre and content preferences</li>
+                            <li>Device and browser information</li>
+                            <li>IP address, location, and usage data through cookies and analytics tools</li>
+                        </ul>
+                        <br>
+                        <h3 id="section2">How We Use Your Information</h3>
+                        <p>Your information is used to:</p>
+                        <ul>
+                            <li>Register your interest and send you platform-related updates</li>
+                            <li>Provide you with personalized recommendations and early access notifications</li>
+                            <li>Deliver promotional and marketing content</li>
+                            <li>Improve website functionality, user experience, and analytics</li>
+                        </ul>
+                        <br>
+                        <h3 id="section3">Licensed Content and Intellectual Property</h3>
+                        <p>CUP Entertainment Global hosts and distributes legally acquired, paid, and licensed content, including but not limited to:</p>
+                        <ul>
+                            <li>Original dramas produced by ETS Productions</li>
+                            <li>Licensed international movies and shows</li>
+                            <li>Sports content and live TV streams</li>
+                        </ul>
+                        <p>All content available on the CUP Entertainment platform is either produced in-house or legally licensed for digital distribution. Unauthorized copying, reproduction, screen recording, redistribution, or re-uploading of this content is strictly prohibited.</p>
+                        <p>We take intellectual property rights very seriously and will pursue strict legal action against any individual or entity found violating these rights.</p>
+                        <br>
+                        <h3 id="section4">Marketing and Communication</h3>
+                        <p>By submitting your information, you consent to receive platform updates, promotional offers, content previews, and marketing emails or SMS. You may opt out at any time using the unsubscribe link in our emails or by contacting us directly.</p>
+                        <br>
+                        <h3 id="section5">Cookies & Analytics</h3>
+                        <p>Our Site uses cookies and third-party tools like Google Analytics and Meta Pixel to analyze user behavior, measure performance, and improve functionality.</p>
+                        <br>
+                        <h3 id="section6">Data Security</h3>
+                        <p>We maintain reasonable administrative, technical, and physical safeguards to protect your personal information from unauthorized access, disclosure, or misuse.</p>
+                        <br>
+                        <h3 id="section7">External Links</h3>
+                        <p>Our platform may link to third-party websites or apps. We are not responsible for their privacy practices and recommend reviewing their privacy policies separately.</p>
+                        <br>
+                        <h3 id="section8">Your Rights</h3>
+                        <ul>
+                            <li>Accessing, correcting, or deleting your personal data</li>
+                            <li>Withdrawing consent for marketing communications</li>
+                            <li>Requesting data usage limitations</li>
+                        </ul>
+                        <br>
+                        <h3 id="section9">Contact Us</h3>
+                        <ul>
+                            <li>Email: privacy@cupentertainment.com</li>
+                            <li>Website: www.cupentertainment.com</li>
+                        </ul>
+                        <br>
+                        <h3 id="section10">Policy Updates</h3>
+                        <p>This Privacy Policy may be updated from time to time. Updates will be posted on this page with a revised “Effective Date.” Continued use of the platform implies acceptance of any revised terms.</p>
+
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</header>
+        </section>
+    </section>
 
-<!-- Privacy Policy Section -->
-<section class="privacy-policy-section section-padding fix" style="margin-top: 10%; ">
-    <div class="container">
-        <div class="privacy-policy-wrapper">
-            <div class="privacy-policy-content">
-                
-                <h2><span class="highlight-text">Privacy Policy</span></h2>
-
-                <p><strong>Effective Date:</strong> 15/07/2025<br>
-                   <strong>Website:</strong> www.cupentertainment.com<br>
-                   <strong>Entity:</strong> Cup Entertainment Global Limited.
-                </p>
-
-                <p>At Cup Entertainment Global Limited, your privacy and trust are extremely important to us. This Privacy Policy outlines how we collect, use, and protect your personal data, as well as how we protect the digital content on our platform.</p>
-
-                <h3>1. Information We Collect</h3>
-                <p>When you engage with our platform or sign up through www.cupentertainment.com (the “Site”), we may collect:</p>
-                <ul>
-                    <li>Full Name</li>
-                    <li>Email Address</li>
-                    <li>Mobile Number (optional)</li>
-                    <li>Genre and content preferences</li>
-                    <li>Device and browser information</li>
-                    <li>IP address, location, and usage data through cookies and analytics tools</li>
-                </ul>
-
-                <h3>2. How We Use Your Information</h3>
-                <p>Your information is used to:</p>
-                <ul>
-                    <li>Register your interest and send you platform-related updates</li>
-                    <li>Provide you with personalized recommendations and early access notifications</li>
-                    <li>Deliver promotional and marketing content</li>
-                    <li>Improve website functionality, user experience, and analytics</li>
-                </ul>
-
-                <h3>3. Licensed Content and Intellectual Property</h3>
-                <p>CUP Entertainment Global hosts and distributes legally acquired, paid, and licensed content, including but not limited to:</p>
-                <ul>
-                    <li>Original dramas produced by ETS Productions</li>
-                    <li>Licensed international movies and shows</li>
-                    <li>Sports content and live TV streams</li>
-                </ul>
-                <p>All content available on the CUP Entertainment platform is either produced in-house or legally licensed for digital distribution. Unauthorized copying, reproduction, screen recording, redistribution, or re-uploading of this content is strictly prohibited.</p>
-                <p>We take intellectual property rights very seriously and will pursue strict legal action against any individual or entity found violating these rights.</p>
-
-                <h3>4. Marketing and Communication</h3>
-                <p>By submitting your information, you consent to receive platform updates, promotional offers, content previews, and marketing emails or SMS. You may opt out at any time using the unsubscribe link in our emails or by contacting us directly.</p>
-
-                <h3>5. Cookies & Analytics</h3>
-                <p>Our Site uses cookies and third-party tools like Google Analytics and Meta Pixel to analyze user behavior, measure performance, and improve functionality.</p>
-
-                <h3>6. Data Security</h3>
-                <p>We maintain reasonable administrative, technical, and physical safeguards to protect your personal information from unauthorized access, disclosure, or misuse.</p>
-
-                <h3>7. External Links</h3>
-                <p>Our platform may link to third-party websites or apps. We are not responsible for their privacy practices and recommend reviewing their privacy policies separately.</p>
-
-                <h3>8. Your Rights</h3>
-                <ul>
-                    <li>Accessing, correcting, or deleting your personal data</li>
-                    <li>Withdrawing consent for marketing communications</li>
-                    <li>Requesting data usage limitations</li>
-                </ul>
-
-                <h3>9. Contact Us</h3>
-                <ul>
-                    <li>Email: privacy@cupentertainment.com</li>
-                    <li>Website: www.cupentertainment.com</li>
-                </ul>
-
-                <h3>10. Policy Updates</h3>
-                <p>This Privacy Policy may be updated from time to time. Updates will be posted on this page with a revised “Effective Date.” Continued use of the platform implies acceptance of any revised terms.</p>
-
+    <!-- Footer -->
+    <footer class="footer-section fix footer-bg">
+        <div class="container">
+            <div class="footer-bottom">
+                <p class="text-center mb-0">© 2025 Cup Entertainment Global Limited. All rights reserved.</p>
             </div>
         </div>
-    </div>
-</section>
-
-<!-- Footer -->
-<footer class="footer-section fix footer-bg">
-    <div class="container">
-        <div class="footer-bottom">
-            <p class="text-center mb-0">© 2025 Cup Entertainment Global Limited. All rights reserved.</p>
-        </div>
-    </div>
-</footer>
-
+    </footer>
 </body>
 </html>
