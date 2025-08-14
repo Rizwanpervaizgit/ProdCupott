@@ -181,8 +181,7 @@ input {
 }
 
 .servie-card-image-items {
-  overflow: hidden;
-  border-radius: 4%;                    /* ensures rounded corners clip the image */
+  overflow: hidden;                /* ensures rounded corners clip the image */
   background-size: cover;              /* important: image covers the div */
   background-position: top;
   background-repeat: no-repeat;
@@ -353,7 +352,7 @@ input {
 
 
 .section-title span {
-  font-size: 18px;
+  font-size: 21px;
   font-weight: 500;
   color: #6a0dad;
   display: block; /* make sure it's its own line */
@@ -491,7 +490,7 @@ body {
   border-radius: 12px;
   color: white;
   box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-  max-width: 650px;
+  max-width: 100%;
   width: 100%;
 }
 
@@ -731,6 +730,34 @@ body {
 .about-image.fade-in::before {
     opacity: 1; /* Set the opacity to 1 for fade-in effect */
 }
+
+
+.scroll-wrapper {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth; /* Makes scrolling smooth */
+  gap: 16px; /* Optional, to add some space between the items */
+}
+
+.servie-card-image-items {
+  flex-shrink: 0; /* Prevents the items from shrinking */
+  width: 300px; /* Adjust the width as per your design */
+  height: 200px; /* Adjust the height as per your design */
+}
+#scrollWrapper {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 16px;
+}
+
+.servie-card-image-items {
+  flex-shrink: 0;
+  width: 300px;  /* Adjust as needed */
+  height: 200px;  /* Adjust as needed */
+}
+
+
 
 }
 

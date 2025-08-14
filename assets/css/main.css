@@ -4119,7 +4119,8 @@ input.main-search-input::placeholder {
 }
 
 .about-wrapper .about-image img {
-  width: 100%;
+  margin-top: 7%;
+  width: 80%;
   height: 100%;
 }
 
@@ -11568,7 +11569,7 @@ p.sticky-label {
 }
 
 .footer-widgets-wrapper {
-  padding: 90px 0 120px;
+  padding: 2% 0 5%;
   position: relative;
   z-index: 9;
 }
