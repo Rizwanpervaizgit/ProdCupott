@@ -267,71 +267,89 @@ const timer = setInterval(function () {
                 </div>
             </div>
             <div class="offcanvas__overlay"></div>
+            <div id="header-container"></div>
 
-            <!-- Header Area Start -->
-
-    <header>
-        <div id="header-sticky" class="header-1">
-            <div class="container-fluid">
-                <div class="mega-menu-wrapper">
-                    <div class="header-main">
-                        <div class="logo">
-                            <a href="index.html" class="header-logo">
-                                <img src="assets/img/logo-dark.png" alt="logo-img">
-                            </a>
-                            <a href="index.html" class="header-logo-2">
-                                <img src="assets/img/pre-logo.png" alt="logo-img">
+            <script>
+              function loadHeader() {
+                const isMobile = window.innerWidth <= 768; // Adjust breakpoint if needed
+            
+                const mobileHeader = `
+                  <header>
+                    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #1b1a1a;">
+                      <div class="container-fluid">
+                        <a class="navbar-brand" href="index.html">
+                          <img src="assets/img/logo-dark.png" alt="logo" style="height: 40px;">
                         </a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+                          aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                          <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="mainNavbar">
+                          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="aboutUs.html">About Us</a></li>
+                            <li class="nav-item"><a class="nav-link" href="contactUS.html">Contact Us</a></li>
+                            <li class="nav-item">
+                              <a class="btn btn-primary ms-lg-3" href="PreRegisterNow.html"
+                                style="background-color: #9d0dad; border: none; color: white;">
+                                Pre-Register Now
+                              </a>
+                            </li>
+                          </ul>
                         </div>
-                        <div class="header-left">
-                            <div class="mean__menu-wrapper">
-                                <div class="main-menu">
-                                    <nav id="mobile-menu">
-                                        <ul>
-                                            <li class="has-dropdown active menu-thumb">
-                                                <a href="index.html">
-                                                Home 
-                                                </a>
-                                                
-                                            </li>
-                                            <li class="has-dropdown active d-lg-none">
-                                                <a href="team.html" class="border-none">
-                                                Home
-                                                <i class="fas fa-angle-down"></i>
-                                                </a>
-                                                <ul class="submenu">
-                                                    <li><a href="index.html">Home 01</a></li>
-                                                    <li><a href="index-2.html">Home 02</a></li>
-                                                    <li><a href="index-3.html">Home 03</a></li>
-                                                    <li><a href="index-4.html">Home 04</a></li>
-                                                </ul>
-                                            </li>
-                                        
-                                            <li>
-                                                <a href="aboutUs.html">About Us</a>
-                                            </li>
-                                                                        
-                                            
-                                            
-                                            <li>
-                                                <a href="contactUS.html">Contact</a>
-                                            </li>
-
-                                            <li>
-                                                <a class="text-area text-center mt-5 wow fadeInUp mb-5 d-block" href="PreRegisterNow.html" style="padding: 12px !important;color: aliceblue; text-decoration: none;max-width:fit-content">Pre-Register Now</a>
-                                            </li>
-                                        </ul>
-                                    </nav>
+                      </div>
+                    </nav>
+                  </header>
+                `;
+            
+                const desktopHeader = `
+                  <!-- Your full-screen header code here -->
+                  <header>
+                    <div id="header-sticky" class="header-1">
+                        <div class="container-fluid">
+                            <div class="mega-menu-wrapper">
+                                <div class="header-main">
+                                    <div class="logo">
+                                        <a href="index.html" class="header-logo">
+                                            <img src="assets/img/logo-dark.png" alt="logo-img">
+                                        </a>
+                                        <a href="index.html" class="header-logo-2">
+                                            <img src="assets/img/pre-logo.png" alt="logo-img">
+                                        </a>
+                                    </div>
+                                    <div class="header-left">
+                                        <div class="mean__menu-wrapper">
+                                            <div class="main-menu">
+                                                <nav id="mobile-menu">
+                                                    <ul>
+                                                        <li class="has-dropdown active menu-thumb"><a href="index.html">Home</a></li>
+                                                        <li><a href="aboutUs.html">About Us</a></li>
+                                                        <li><a href="contactUS.html">Contact</a></li>
+                                                        <li>
+                                                            <a class="text-area text-center mt-5 wow fadeInUp mb-5 d-block"
+                                                               href="PreRegisterNow.html"
+                                                               style="padding: 12px !important;color: aliceblue; text-decoration: none;max-width:fit-content">
+                                                               Pre-Register Now
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </nav>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
                     </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
+                  </header>
+                `;
+            
+                document.getElementById("header-container").innerHTML = isMobile ? mobileHeader : desktopHeader;
+              }
+            
+              loadHeader();
+              window.addEventListener("resize", loadHeader); // Reload on resize
+            </script>
     <!-- Modal Overlay -->
     <!-- Modal HTML -->
 
